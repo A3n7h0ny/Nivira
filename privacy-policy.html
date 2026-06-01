@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy & POPIA | Nivira</title>
+<meta name="description" content="Nivira's Privacy Policy and POPIA compliance notice. Learn how we collect, use, and protect your personal information.">
+<link rel="canonical" href="https://www.nivira.co.za/privacy-policy.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1a1f5e;
+  --blue:#0066cc;
+  --cyan:#00aaff;
+  --white:#ffffff;
+  --offwhite:#f5f5f7;
+  --grey:#e8e8ed;
+  --midgrey:#8e8e93;
+  --darkgrey:#3a3a3c;
+  --gold:#c9a84c;
+  --shadow:0 4px 24px rgba(0,102,204,0.10);
+  --shadow-lg:0 20px 60px rgba(26,31,94,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--offwhite);
+  color:var(--navy);
+  cursor:none;
+}
+
+/* CURSOR */
+.cursor{position:fixed;width:12px;height:12px;background:var(--cyan);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform 0.1s,background 0.3s,width 0.3s,height 0.3s;mix-blend-mode:multiply;}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--blue);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:transform 0.18s,width 0.3s,height 0.3s,opacity 0.3s;opacity:0.5;}
+.cursor.hover{width:20px;height:20px;background:var(--gold);}
+.cursor-ring.hover{width:52px;height:52px;opacity:0.25;}
+
+/* GOLD BAR */
+.gold-bar{height:3px;background:linear-gradient(90deg,var(--gold),var(--cyan),var(--gold));background-size:200% 100%;animation:shimmer 3s linear infinite;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+
+/* NAV */
+nav{
+  position:fixed;top:3px;left:0;right:0;z-index:1000;
+  padding:0 5%;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(232,232,237,0.6);
+  transition:all 0.4s;
+}
+nav.scrolled{box-shadow:0 2px 30px rgba(26,31,94,0.08);}
+.nav-logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:22px;
+  color:var(--navy);text-decoration:none;letter-spacing:-0.5px;
+}
+.nav-logo span{color:var(--cyan);}
+.nav-back{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:500;color:var(--midgrey);
+  text-decoration:none;transition:color 0.3s;
+}
+.nav-back:hover{color:var(--navy);}
+.nav-back svg{width:16px;height:16px;stroke:currentColor;transition:transform 0.3s;}
+.nav-back:hover svg{transform:translateX(-3px);}
+
+/* PAGE HERO */
+.page-hero{
+  padding:140px 5% 60px;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 60%,var(--cyan) 100%);
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.page-hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.hero-inner{position:relative;z-index:2;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 18px;border-radius:100px;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.2);
+  font-size:12px;font-weight:600;letter-spacing:0.08em;
+  text-transform:uppercase;color:rgba(255,255,255,0.85);
+  margin-bottom:24px;
+}
+.page-hero h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(36px,5vw,60px);
+  font-weight:800;color:var(--white);
+  letter-spacing:-2px;margin-bottom:16px;
+  line-height:1.1;
+}
+.page-hero p{
+  font-size:17px;font-weight:300;
+  color:rgba(255,255,255,0.7);
+  max-width:580px;margin:0 auto 24px;
+  line-height:1.7;
+}
+.updated-pill{
+  display:inline-block;
+  padding:6px 16px;border-radius:100px;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.15);
+  font-size:12px;color:rgba(255,255,255,0.6);
+}
+
+/* MAIN CONTENT */
+.content-wrap{
+  max-width:820px;margin:0 auto;
+  padding:60px 20px 80px;
+}
+
+/* POLICY CARD */
+.policy-card{
+  background:var(--white);
+  border:1px solid var(--grey);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  margin-bottom:24px;
+}
+.policy-section{
+  padding:40px 48px;
+  border-bottom:1px solid var(--grey);
+}
+.policy-section:last-child{border-bottom:none;}
+.policy-section h2{
+  font-family:'Syne',sans-serif;
+  font-size:18px;font-weight:700;
+  color:var(--navy);margin-bottom:16px;
+  display:flex;align-items:center;gap:12px;
+  letter-spacing:-0.3px;
+}
+.section-icon{
+  width:36px;height:36px;border-radius:10px;
+  background:rgba(0,102,204,0.08);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.section-icon svg{width:18px;height:18px;stroke:var(--blue);stroke-width:1.5;}
+.policy-section p{
+  font-size:15px;font-weight:300;
+  color:var(--midgrey);line-height:1.8;
+  margin-bottom:12px;
+}
+.policy-section p:last-child{margin-bottom:0;}
+.policy-section ul{
+  list-style:none;margin-top:12px;
+}
+.policy-section ul li{
+  font-size:15px;font-weight:300;
+  color:var(--midgrey);line-height:1.8;
+  padding:6px 0 6px 24px;
+  position:relative;
+  border-bottom:1px solid var(--offwhite);
+}
+.policy-section ul li:last-child{border-bottom:none;}
+.policy-section ul li::before{
+  content:'';position:absolute;left:0;top:50%;
+  transform:translateY(-50%);
+  width:6px;height:6px;border-radius:50%;
+  background:var(--cyan);
+}
+.policy-section ul li strong{
+  color:var(--navy);font-weight:500;
+}
+.highlight-box{
+  background:rgba(0,102,204,0.04);
+  border:1px solid rgba(0,102,204,0.12);
+  border-radius:14px;padding:20px 24px;
+  margin-top:16px;
+}
+.highlight-box p{color:var(--darkgrey);font-size:14px;margin:0;}
+.highlight-box strong{color:var(--blue);font-weight:500;}
+
+/* CONSENT FORM CARD */
+.consent-card{
+  background:var(--white);
+  border:1px solid var(--grey);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  margin-bottom:24px;
+}
+.consent-header{
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  padding:32px 48px;
+  position:relative;overflow:hidden;
+}
+.consent-header::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+.consent-header-inner{position:relative;z-index:1;}
+.consent-header h3{
+  font-family:'Syne',sans-serif;
+  font-size:22px;font-weight:700;
+  color:var(--white);margin-bottom:8px;
+  letter-spacing:-0.5px;
+}
+.consent-header p{
+  font-size:14px;font-weight:300;
+  color:rgba(255,255,255,0.65);
+  line-height:1.6;
+}
+.consent-body{padding:40px 48px;}
+
+/* HIDDEN FORMSPREE */
+#consentFormData{display:none;}
+
+/* CONSENT ITEMS */
+.consent-items{
+  display:flex;flex-direction:column;
+  gap:0;margin-bottom:28px;
+  border:1px solid var(--grey);
+  border-radius:16px;overflow:hidden;
+}
+.consent-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px 24px;
+  border-bottom:1px solid var(--grey);
+  transition:background 0.2s;
+  cursor:none;
+}
+.consent-item:last-child{border-bottom:none;}
+.consent-item:hover{background:rgba(0,102,204,0.02);}
+.consent-item input[type="checkbox"]{
+  width:20px;height:20px;
+  border:2px solid var(--grey);
+  border-radius:6px;
+  cursor:none;
+  accent-color:var(--blue);
+  flex-shrink:0;margin-top:3px;
+  transition:all 0.2s;
+}
+.consent-item label{
+  flex:1;cursor:none;
+}
+.consent-item label strong{
+  display:block;font-size:15px;
+  font-weight:500;color:var(--navy);
+  margin-bottom:4px;
+}
+.consent-item label small{
+  font-size:13px;font-weight:300;
+  color:var(--midgrey);line-height:1.5;
+}
+.consent-check-icon{
+  width:32px;height:32px;border-radius:10px;
+  background:rgba(0,102,204,0.08);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;
+  transition:background 0.3s;
+}
+.consent-check-icon svg{
+  width:16px;height:16px;
+  stroke:var(--blue);stroke-width:1.5;
+}
+
+/* PROGRESS */
+.consent-progress{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:24px;
+}
+.progress-bar-wrap{
+  flex:1;height:4px;
+  background:var(--grey);border-radius:100px;
+  overflow:hidden;
+}
+.progress-bar-fill{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,var(--cyan),var(--blue));
+  border-radius:100px;
+  transition:width 0.4s ease;
+}
+.progress-text{
+  font-size:12px;font-weight:600;
+  color:var(--midgrey);white-space:nowrap;
+  min-width:60px;text-align:right;
+}
+
+/* ACCEPT BUTTON */
+.accept-btn{
+  width:100%;padding:16px;
+  background:linear-gradient(135deg,var(--blue),var(--navy));
+  color:var(--white);border:none;border-radius:14px;
+  font-size:15px;font-weight:500;
+  font-family:'DM Sans',sans-serif;
+  cursor:none;transition:all 0.3s ease;
+  position:relative;overflow:hidden;
+  letter-spacing:0.02em;
+}
+.accept-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));
+  opacity:0;transition:opacity 0.3s;
+}
+.accept-btn:hover:not(:disabled)::before{opacity:1;}
+.accept-btn span{position:relative;z-index:1;}
+.accept-btn:disabled{
+  opacity:0.4;cursor:not-allowed;
+}
+.accept-btn:disabled::before{opacity:0;}
+
+/* SUCCESS / ERROR */
+.result-msg{
+  display:none;
+  border-radius:14px;
+  padding:20px 24px;
+  margin-top:20px;
+  font-size:14px;line-height:1.6;
+  font-weight:400;
+}
+.result-msg.success{
+  background:rgba(0,170,255,0.06);
+  border:1px solid rgba(0,102,204,0.15);
+  color:var(--blue);
+}
+.result-msg.error{
+  background:rgba(255,107,53,0.06);
+  border:1px solid rgba(255,107,53,0.2);
+  color:#c0392b;
+}
+.result-msg strong{font-weight:600;}
+
+/* RIGHTS CARD */
+.rights-card{
+  background:linear-gradient(135deg,var(--navy) 0%,#0d1440 100%);
+  border-radius:28px;padding:48px;
+  margin-bottom:24px;
+  position:relative;overflow:hidden;
+}
+.rights-card::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(var(--cyan) 1px,transparent 1px);
+  background-size:32px 32px;opacity:0.04;
+}
+.rights-card-inner{position:relative;z-index:1;}
+.rights-card h3{
+  font-family:'Syne',sans-serif;
+  font-size:22px;font-weight:700;
+  color:var(--white);margin-bottom:8px;
+  letter-spacing:-0.5px;
+}
+.rights-card p{
+  font-size:14px;font-weight:300;
+  color:rgba(255,255,255,0.55);
+  margin-bottom:28px;line-height:1.7;
+}
+.rights-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.right-item{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;padding:18px 20px;
+  display:flex;align-items:flex-start;gap:12px;
+  transition:background 0.3s;
+}
+.right-item:hover{background:rgba(255,255,255,0.08);}
+.right-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--cyan);flex-shrink:0;margin-top:6px;
+}
+.right-item strong{
+  display:block;font-size:13px;font-weight:600;
+  color:var(--white);margin-bottom:3px;
+}
+.right-item span{
+  font-size:12px;font-weight:300;
+  color:rgba(255,255,255,0.45);line-height:1.5;
+}
+
+/* REGULATOR CARD */
+.regulator-card{
+  background:var(--white);
+  border:1px solid var(--grey);
+  border-radius:20px;padding:32px 40px;
+  margin-bottom:24px;
+  display:flex;align-items:flex-start;gap:20px;
+}
+.regulator-icon{
+  width:48px;height:48px;border-radius:14px;
+  background:rgba(0,102,204,0.08);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.regulator-icon svg{width:24px;height:24px;stroke:var(--blue);stroke-width:1.5;}
+.regulator-info h4{
+  font-family:'Syne',sans-serif;
+  font-size:16px;font-weight:700;
+  color:var(--navy);margin-bottom:8px;
+}
+.regulator-info p{
+  font-size:14px;font-weight:300;
+  color:var(--midgrey);line-height:1.7;margin-bottom:12px;
+}
+.regulator-links{
+  display:flex;flex-wrap:wrap;gap:8px;
+}
+.reg-link{
+  font-size:13px;font-weight:500;
+  color:var(--blue);text-decoration:none;
+  padding:5px 14px;border-radius:100px;
+  border:1px solid rgba(0,102,204,0.2);
+  background:rgba(0,102,204,0.04);
+  transition:all 0.3s;
+}
+.reg-link:hover{background:var(--blue);color:var(--white);}
+
+/* FOOTER */
+footer{
+  background:var(--navy);
+  padding:32px 5%;
+  display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:12px;
+}
+footer p{font-size:13px;color:rgba(255,255,255,0.3);}
+footer a{color:var(--cyan);text-decoration:none;}
+.footer-logo{
+  font-family:'Syne',sans-serif;
+  font-size:18px;font-weight:800;
+  color:var(--white);letter-spacing:-0.5px;
+}
+.footer-logo span{color:var(--cyan);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .policy-section,.consent-body,.consent-header{padding:28px 24px;}
+  .rights-card{padding:32px 24px;}
+  .rights-grid{grid-template-columns:1fr;}
+  .regulator-card{flex-direction:column;}
+  footer{flex-direction:column;text-align:center;}
+  body{cursor:auto;}
+  .cursor,.cursor-ring{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="gold-bar"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">NI<span>V</span>IRA</a>
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Home
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-badge">POPIA Compliant · South Africa</div>
+    <h1>Privacy Policy</h1>
+    <p>Nivira is committed to protecting your personal information in accordance with South Africa's Protection of Personal Information Act (POPIA).</p>
+    <div class="updated-pill">Last updated: May 2026</div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+
+  <!-- WHO WE ARE -->
+  <div class="policy-card">
+    <div class="policy-section">
+      <h2>
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        Who We Are
+      </h2>
+      <p><strong>Nivira</strong> is a South African web development studio that builds websites for businesses nationwide. We are the responsible party for personal information collected through this website.</p>
+      <div class="highlight-box">
+        <p><strong>Website:</strong> www.nivira.co.za &nbsp;·&nbsp; <strong>Email:</strong> hello@nivira.co.za &nbsp;·&nbsp; <strong>Location:</strong> Johannesburg, South Africa</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <h2>
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        Information We Collect
+      </h2>
+      <p>When you use our website or contact us about a project, we may collect:</p>
+      <ul>
+        <li><strong>Contact details:</strong> Name, email address, phone number</li>
+        <li><strong>Project information:</strong> Business type, service needed, project description</li>
+        <li><strong>Website usage:</strong> IP address, browser type, pages visited (via cookies)</li>
+        <li><strong>Communications:</strong> Messages sent through our contact form or email</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        How We Use Your Information
+      </h2>
+      <p>We use your personal information only for the following purposes:</p>
+      <ul>
+        <li>To respond to your project enquiries and quote requests</li>
+        <li>To communicate about project progress and deliverables</li>
+        <li>To send invoices and project-related updates</li>
+        <li>To improve our website and services</li>
+        <li>To comply with legal obligations under South African law</li>
+      </ul>
+      <p>We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        Data Security & Retention
+      </h2>
+      <p>We take reasonable technical and organisational measures to protect your personal information against unauthorised access, loss, or misuse.</p>
+      <p>Your information is retained only for as long as necessary to fulfil the purposes for which it was collected, or as required by South African law — typically up to 3 years for client records.</p>
+      <div class="highlight-box">
+        <p><strong>Form submissions</strong> are processed securely via Netlify Forms and Formspree. No payment information is collected or stored on our servers.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <h2>
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        Cookies
+      </h2>
+      <p>Our website uses minimal cookies for essential functionality only — no tracking cookies, no advertising cookies, and no third-party analytics beyond what Netlify provides for site performance.</p>
+      <p>By continuing to use our website, you consent to the use of essential cookies required for the site to function correctly.</p>
+    </div>
+  </div>
+
+  <!-- RIGHTS CARD -->
+  <div class="rights-card">
+    <div class="rights-card-inner">
+      <h3>Your Rights Under POPIA</h3>
+      <p>As a South African data subject, the Protection of Personal Information Act grants you the following rights regarding your personal information.</p>
+      <div class="rights-grid">
+        <div class="right-item">
+          <div class="right-dot"></div>
+          <div>
+            <strong>Right to Access</strong>
+            <span>Request a copy of your personal information we hold</span>
+          </div>
+        </div>
+        <div class="right-item">
+          <div class="right-dot"></div>
+          <div>
+            <strong>Right to Rectification</strong>
+            <span>Correct inaccurate or incomplete information</span>
+          </div>
+        </div>
+        <div class="right-item">
+          <div class="right-dot"></div>
+          <div>
+            <strong>Right to Deletion</strong>
+            <span>Request deletion of your personal information</span>
+          </div>
+        </div>
+        <div class="right-item">
+          <div class="right-dot"></div>
+          <div>
+            <strong>Right to Object</strong>
+            <span>Object to certain types of processing</span>
+          </div>
+        </div>
+        <div class="right-item">
+          <div class="right-dot"></div>
+          <div>
+            <strong>Right to Withdraw</strong>
+            <span>Withdraw your consent at any time</span>
+          </div>
+        </div>
+        <div class="right-item">
+          <div class="right-dot"></div>
+          <div>
+            <strong>Right to Complain</strong>
+            <span>Lodge a complaint with the Information Regulator</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONSENT FORM -->
+  <div class="consent-card">
+    <div class="consent-header">
+      <div class="consent-header-inner">
+        <h3>Your Consent — Required under POPIA</h3>
+        <p>Please read and confirm your consent to each item below. All four must be accepted to proceed.</p>
+      </div>
+    </div>
+    <div class="consent-body">
+
+      <!-- Hidden Formspree form -->
+      <form id="consentFormData" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="consent_date" id="consentDate">
+        <input type="text" name="user_ip" id="userIp">
+        <input type="text" name="user_agent" id="userAgent">
+        <input type="text" name="consent_collection" id="c1val">
+        <input type="text" name="consent_contact" id="c2val">
+        <input type="text" name="consent_retention" id="c3val">
+        <input type="text" name="consent_acknowledgment" id="c4val">
+        <input type="text" name="_subject" value="POPIA Consent — Nivira">
+      </form>
+
+      <!-- Progress -->
+      <div class="consent-progress">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text" id="progressText">0 of 4</div>
+      </div>
+
+      <!-- Checkboxes -->
+      <div class="consent-items">
+
+        <div class="consent-item">
+          <input type="checkbox" id="c1">
+          <div class="consent-check-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+          </div>
+          <label for="c1">
+            <strong>Data Collection & Processing</strong>
+            <small>I consent to Nivira collecting and storing my personal information (name, email, phone number) for the purpose of providing web development services and project communication.</small>
+          </label>
+        </div>
+
+        <div class="consent-item">
+          <input type="checkbox" id="c2">
+          <div class="consent-check-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <label for="c2">
+            <strong>Communication</strong>
+            <small>I consent to being contacted via email, phone, or WhatsApp regarding my project enquiry, quotes, and service updates. I can opt out at any time.</small>
+          </label>
+        </div>
+
+        <div class="consent-item">
+          <input type="checkbox" id="c3">
+          <div class="consent-check-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <label for="c3">
+            <strong>Data Retention</strong>
+            <small>I consent to my information being retained for up to 3 years for project records and legal compliance purposes. I may request deletion at any time by emailing hello@nivira.co.za.</small>
+          </label>
+        </div>
+
+        <div class="consent-item">
+          <input type="checkbox" id="c4">
+          <div class="consent-check-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <label for="c4">
+            <strong>Policy Acknowledgement</strong>
+            <small>I confirm I have read and understood this Privacy Policy and my rights under South Africa's Protection of Personal Information Act (POPIA Act 4 of 2013).</small>
+          </label>
+        </div>
+
+      </div>
+
+      <button class="accept-btn" id="acceptBtn" disabled>
+        <span id="btnText">✓ Accept All & Continue</span>
+      </button>
+
+      <div class="result-msg success" id="successMsg">
+        <strong>✓ Consent Recorded</strong><br>
+        Thank you. Your consent has been saved and a record has been sent to our team. You can exercise your POPIA rights at any time by contacting us at hello@nivira.co.za.
+      </div>
+      <div class="result-msg error" id="errorMsg">
+        <strong>⚠ Submission issue</strong><br>
+        Your consent has been saved locally. If you need a formal record, please email us at hello@nivira.co.za.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- REGULATOR -->
+  <div class="regulator-card">
+    <div class="regulator-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </div>
+    <div class="regulator-info">
+      <h4>South Africa Information Regulator</h4>
+      <p>If you believe your privacy rights have been violated, you have the right to lodge a complaint with the South African Information Regulator — the official body that oversees POPIA compliance.</p>
+      <div class="regulator-links">
+        <a href="https://www.inforegulator.org.za" target="_blank" rel="noopener" class="reg-link">inforegulator.org.za</a>
+        <a href="mailto:POPIAComplaints@inforegulator.org.za" class="reg-link">POPIAComplaints@inforegulator.org.za</a>
+        <a href="tel:0124064818" class="reg-link">012 406 4818</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end content-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">NI<span>V</span>IRA</a>
+  <p>© 2026 Nivira. All rights reserved. · POPIA Act 4 of 2013</p>
+  <p><a href="index.html">← Back to Home</a></p>
+</footer>
+
+<script>
+// CURSOR
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+});
+function animateRing(){
+  rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+document.querySelectorAll('a,button,.consent-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.classList.add('hover');ring.classList.add('hover');});
+  el.addEventListener('mouseleave',()=>{cursor.classList.remove('hover');ring.classList.remove('hover');});
+});
+
+// NAVBAR SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// CONSENT LOGIC
+const checkboxes=[
+  document.getElementById('c1'),
+  document.getElementById('c2'),
+  document.getElementById('c3'),
+  document.getElementById('c4')
+];
+const acceptBtn=document.getElementById('acceptBtn');
+const progressFill=document.getElementById('progressFill');
+const progressText=document.getElementById('progressText');
+
+function updateProgress(){
+  const checked=checkboxes.filter(c=>c.checked).length;
+  const pct=(checked/4)*100;
+  progressFill.style.width=pct+'%';
+  progressText.textContent=checked+' of 4';
+  acceptBtn.disabled=checked<4;
+}
+
+checkboxes.forEach(c=>c.addEventListener('change',updateProgress));
+
+// Get IP
+let userIp='Unable to detect';
+fetch('https://api.ipify.org?format=json')
+  .then(r=>r.json())
+  .then(d=>userIp=d.ip)
+  .catch(()=>userIp='Detection failed');
+
+// Submit consent
+acceptBtn.addEventListener('click',async function(){
+  const btnText=document.getElementById('btnText');
+  btnText.textContent='Saving…';
+  acceptBtn.disabled=true;
+
+  // Save to localStorage
+  const consentData={
+    accepted:true,
+    timestamp:new Date().toISOString(),
+    ip:userIp,
+    consents:{
+      dataCollection:checkboxes[0].checked,
+      contact:checkboxes[1].checked,
+      retention:checkboxes[2].checked,
+      acknowledgment:checkboxes[3].checked
+    }
+  };
+  localStorage.setItem('niviraPOPIAConsent',JSON.stringify(consentData));
+
+  // Fill hidden form
+  document.getElementById('consentDate').value=consentData.timestamp;
+  document.getElementById('userIp').value=userIp;
+  document.getElementById('userAgent').value=navigator.userAgent;
+  document.getElementById('c1val').value=checkboxes[0].checked?'Yes':'No';
+  document.getElementById('c2val').value=checkboxes[1].checked?'Yes':'No';
+  document.getElementById('c3val').value=checkboxes[2].checked?'Yes':'No';
+  document.getElementById('c4val').value=checkboxes[3].checked?'Yes':'No';
+
+  // Submit to Formspree
+  const form=document.getElementById('consentFormData');
+  const formData=new FormData(form);
+  try{
+    const res=await fetch(form.action,{
+      method:'POST',body:formData,
+      headers:{Accept:'application/json'}
+    });
+    if(res.ok){
+      document.getElementById('successMsg').style.display='block';
+    } else {
+      document.getElementById('errorMsg').style.display='block';
+    }
+  }catch{
+    document.getElementById('errorMsg').style.display='block';
+  }
+
+  btnText.textContent='✓ Consent Accepted';
+});
+
+// Check existing consent on load
+window.addEventListener('load',()=>{
+  try{
+    const saved=JSON.parse(localStorage.getItem('niviraPOPIAConsent'));
+    if(saved&&saved.accepted){
+      acceptBtn.disabled=true;
+      document.getElementById('btnText').textContent='✓ Consent Already Recorded';
+      const s=document.getElementById('successMsg');
+      s.style.display='block';
+      s.innerHTML='<strong>✓ Consent Already Recorded</strong><br>You have previously accepted our Privacy Policy. Thank you.';
+    }
+  }catch(e){}
+});
+</script>
+</body>
+</html>
