@@ -536,6 +536,10 @@ h2.section-title span{
   background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 50%,var(--cyan) 100%);
   position:relative;display:flex;align-items:center;justify-content:center;
 }
+.project-img img {
+  height: auto;
+  width: 100%;
+}
 .project-card.featured .project-img{
   height:100%;min-height:320px;
 }
@@ -699,12 +703,18 @@ h2.section-title span{
   height:520px;
   position:relative;
   display:flex;align-items:center;justify-content:center;
+  
 }
 .about-pattern{
   position:absolute;inset:0;
   background-image:radial-gradient(var(--grey) 1.5px,transparent 1.5px);
   background-size:24px 24px;
-  opacity:0.8;
+  opacity:0.9;
+  
+}
+.about-pattern img {
+  width: auto;
+  height: 100%;
 }
 .about-center-card{
   position:relative;z-index:2;
@@ -818,6 +828,9 @@ h2.section-title span{
   display:flex;align-items:center;justify-content:center;
   font-family:'Syne',sans-serif;
   font-size:18px;font-weight:800;color:var(--white);
+}
+.testi-avatar img{
+  width:52px;height:52px;border-radius:50%;
 }
 .testi-info strong{
   display:block;font-size:15px;
@@ -1238,6 +1251,10 @@ footer{
             .fab-hover-tip {
                 font-size: 11px;
                 right: 64px;
+            }
+            .project-img img {
+              height: 100%;
+              width: auto;
             }
         }
 
