@@ -3,611 +3,1066 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nivira | Websites That Turn Visitors into Customers</title>
-<meta name="description" content="Nivira builds high-performance websites for South African businesses. SEO, hosting, design and development nationwide.">
-<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Nivira Solutions" />
-<link rel="manifest" href="/site.webmanifest" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<title>Happy Birthday Patrick | Interactive Celebration</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F5E6C0;
+    --gold-dark: #8B6914;
+    --black: #0A0A0A;
+    --deep: #0E0C09;
+    --surface: #141209;
+    --surface2: #1C1810;
+    --text: #F0E8D5;
+    --text-muted: #A09070;
+    --white: #FDF8EE;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--deep);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed; width: 10px; height: 10px;
+    background: var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, background 0.2s;
+    mix-blend-mode: screen;
+  }
+  .cursor-ring {
+    position: fixed; width: 36px; height: 36px;
+    border: 1px solid var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease, width 0.3s, height 0.3s, opacity 0.3s;
+    opacity: 0.5;
+  }
+
+  /* FLYING PHOTO ANIMATIONS */
+  .flying-photo {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    filter: brightness(0.9) sepia(0.2);
+    transition: all 0.1s ease;
+  }
+  .flying-photo.visible {
+    animation: flyAcross 1.5s ease-out forwards;
+  }
+  @keyframes flyAcross {
+    0% {
+      opacity: 0;
+      transform: translateX(-200px) rotate(-15deg) scale(0.8);
+    }
+    10% {
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(calc(50vw - 60px)) rotate(5deg) scale(1);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(calc(100vw + 100px)) rotate(25deg) scale(0.6);
+      display: none;
+    }
+  }
+
+  /* FLOATING ANIMATION FOR ELEMENTS */
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+  @keyframes floatMedium {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(-1deg); }
+  }
+  @keyframes floatFast {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(1deg); }
+  }
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { text-shadow: 0 0 5px rgba(201,168,76,0.3); }
+    50% { text-shadow: 0 0 25px rgba(201,168,76,0.6); }
+  }
+
+  /* PARALLAX SCROLL EFFECTS */
+  .parallax-item {
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    will-change: transform;
+  }
+  .parallax-left {
+    transform: translateX(-30px);
+    opacity: 0.6;
+    transition: all 0.6s ease;
+  }
+  .parallax-left.visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .parallax-right {
+    transform: translateX(30px);
+    opacity: 0.6;
+    transition: all 0.6s ease;
+  }
+  .parallax-right.visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .parallax-up {
+    transform: translateY(40px);
+    opacity: 0;
+    transition: all 0.8s ease;
+  }
+  .parallax-up.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* SPARKLE TRAIL EFFECT */
+  .sparkle-trail {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9997;
+    filter: blur(1px);
+    animation: sparkleFade 0.5s ease-out forwards;
+  }
+  @keyframes sparkleFade {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0); }
+  }
+
+  /* HOVER GLOW EFFECTS */
+  .glow-on-hover {
+    transition: all 0.3s ease;
+  }
+  .glow-on-hover:hover {
+    filter: drop-shadow(0 0 15px rgba(201,168,76,0.5));
+    transform: scale(1.02);
+  }
+
+  /* SPLASH - keeping original styles */
+  #splash {
+    position: fixed; inset: 0;
+    background: var(--black);
+    z-index: 1000;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0;
+    overflow: hidden;
+  }
+  #splash .bg-lines {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(201,168,76,0.04) 80px),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(201,168,76,0.04) 80px);
+    animation: gridPulse 4s ease-in-out infinite;
+  }
+  @keyframes gridPulse {
+    0%,100% { opacity: 0.5; } 50% { opacity: 1; }
+  }
+  #splash .candles-row {
+    display: flex; gap: 18px; margin-bottom: 28px;
+    opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
+  }
+  .candle { 
+    display: flex; flex-direction: column; align-items: center; 
+    cursor: pointer; transition: transform 0.2s ease;
+  }
+  .candle:hover { transform: translateY(-5px); }
+  .flame {
+    width: 10px; height: 22px;
+    background: radial-gradient(ellipse at 50% 80%, #fff 0%, #FFD700 30%, #FF8C00 70%, transparent 100%);
+    border-radius: 50% 50% 30% 30%;
+    animation: flicker 0.6s ease-in-out infinite alternate;
+    filter: blur(0.5px);
+    margin-bottom: -2px;
+    transition: all 0.2s ease;
+  }
+  .flame.extinguished {
+    opacity: 0.2;
+    background: radial-gradient(ellipse at 50% 80%, #666 0%, #444 70%, transparent 100%);
+    animation: none;
+  }
+  @keyframes flicker {
+    0% { transform: scaleX(1) scaleY(1) rotate(-2deg); opacity: 1; }
+    100% { transform: scaleX(0.85) scaleY(1.1) rotate(2deg); opacity: 0.9; }
+  }
+  .candle-body {
+    width: 10px; height: 36px;
+    background: linear-gradient(180deg, #fffde7, #e8c97a);
+    border-radius: 2px;
+  }
+  .candle-base { width: 14px; height: 4px; background: var(--gold-dark); border-radius: 1px; }
+
+  #splash .ornament {
+    font-size: 13px; letter-spacing: 6px; color: var(--gold);
+    font-family: 'Cinzel', serif; text-transform: uppercase;
+    opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
+  }
+  #splash h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(48px, 10vw, 110px);
+    font-weight: 700;
+    color: transparent;
+    background: linear-gradient(135deg, #8B6914 0%, #C9A84C 40%, #F5E6C0 60%, #C9A84C 80%, #8B6914 100%);
+    -webkit-background-clip: text; background-clip: text;
+    background-size: 200% auto;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    text-align: center;
+    opacity: 0; animation: fadeUp 0.9s 0.7s forwards, shimmer 4s 1.6s linear infinite;
+    padding: 0 20px;
+  }
+  @keyframes shimmer { to { background-position: 200% center; } }
+  #splash .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 3vw, 26px);
+    font-weight: 300; font-style: italic;
+    color: var(--gold-light); letter-spacing: 3px;
+    opacity: 0; animation: fadeUp 0.8s 1s forwards;
+    margin-top: 10px;
+  }
+  #splash .divider {
+    display: flex; align-items: center; gap: 16px;
+    margin: 24px 0;
+    opacity: 0; animation: fadeUp 0.8s 1.2s forwards;
+  }
+  #splash .divider span { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+  #splash .divider span:last-child { background: linear-gradient(90deg, var(--gold), transparent); }
+  #splash .enter-btn {
+    margin-top: 8px;
+    padding: 14px 48px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 12px; letter-spacing: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative; overflow: hidden;
+    transition: color 0.4s;
+    opacity: 0; animation: fadeUp 0.8s 1.5s forwards;
+  }
+  #splash .enter-btn::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--gold); transform: translateX(-101%);
+    transition: transform 0.4s ease;
+  }
+  #splash .enter-btn:hover::before { transform: translateX(0); }
+  #splash .enter-btn:hover { color: var(--black); }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  #splash.exit { animation: splashExit 1s ease-in forwards; }
+  @keyframes splashExit {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.04); pointer-events: none; }
+  }
+
+  #site { opacity: 0; transition: opacity 1s ease 0.4s; }
+  #site.visible { opacity: 1; }
+
+  /* PARTICLES */
+  #particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .particle {
+    position: absolute; border-radius: 50%;
+    background: var(--gold); opacity: 0;
+    animation: particleFloat linear infinite;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    padding: 20px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 100;
+    background: linear-gradient(180deg, rgba(10,10,10,0.9) 0%, transparent 100%);
+    backdrop-filter: blur(4px);
+  }
+  nav .logo { font-family: 'Cinzel', serif; font-size: 18px; color: var(--gold); letter-spacing: 3px; }
+  nav ul { list-style: none; display: flex; gap: 36px; }
+  nav ul a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    transition: color 0.3s;
+    position: relative;
+  }
+  nav ul a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 100%;
+    height: 1px; background: var(--gold); transition: right 0.3s;
+  }
+  nav ul a:hover { color: var(--gold); }
+  nav ul a:hover::after { right: 0; }
+  nav .sound-btn {
+    background: none; border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold); padding: 8px 16px; cursor: pointer;
+    font-size: 10px; letter-spacing: 3px; font-family: 'Cinzel', serif;
+    text-transform: uppercase; transition: all 0.3s;
+  }
+  nav .sound-btn:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh; position: relative;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; overflow: hidden;
+  }
+  #hero .bg-video-overlay {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,168,76,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 100% 80% at 50% 100%, rgba(10,10,10,1) 0%, transparent 60%);
+    z-index: 1;
+  }
+  #hero-canvas { position: absolute; inset: 0; z-index: 0; }
+  #hero .content { position: relative; z-index: 2; }
+  #hero .pre-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px; letter-spacing: 8px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 20px;
+    opacity: 0; animation: fadeUp 1s 0.2s forwards;
+  }
+  #hero h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 3vw, 24px);
+    font-weight: 300; font-style: italic;
+    color: var(--text-muted); margin-bottom: 10px;
+    opacity: 0; animation: fadeUp 1s 0.4s forwards;
+  }
+  #hero .big-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(56px, 12vw, 140px);
+    font-weight: 700; line-height: 0.9;
+    color: transparent;
+    background: linear-gradient(135deg, #8B6914 0%, #C9A84C 35%, #F5E6C0 55%, #C9A84C 75%, #8B6914 100%);
+    -webkit-background-clip: text; background-clip: text;
+    background-size: 200% auto;
+    animation: fadeUp 1s 0.6s forwards, shimmer 5s 1.6s linear infinite;
+    opacity: 0; display: inline-block;
+    cursor: pointer;
+    transition: letter-spacing 0.3s;
+  }
+  #hero .big-name:hover { letter-spacing: 8px; text-shadow: 0 0 15px rgba(201,168,76,0.4); }
+  #hero .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 300; font-style: italic;
+    color: var(--gold-light); margin-top: 16px;
+    opacity: 0; animation: fadeUp 1s 0.8s forwards;
+    letter-spacing: 2px;
+  }
+  #hero .gold-line {
+    width: 1px; height: 80px; background: linear-gradient(180deg, transparent, var(--gold), transparent);
+    margin: 40px auto 0;
+    opacity: 0; animation: fadeIn 1s 1.2s forwards;
+  }
+  .hero-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 1s 1s forwards;
+  }
+  .hero-btn {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 10px 28px;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .hero-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(201,168,76,0.3);
+  }
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  /* SECTION STYLES (keeping original structure) */
+  section { position: relative; z-index: 2; }
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px; letter-spacing: 6px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .section-label::before, .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4));
+  }
+  .section-label::before { background: linear-gradient(90deg, rgba(201,168,76,0.4), transparent); }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 600; color: var(--text);
+    letter-spacing: 0.05em; margin-bottom: 8px;
+  }
+  .section-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 300; font-style: italic;
+    color: var(--text-muted); margin-bottom: 60px;
+  }
+
+  /* COUNTER, TIMELINE, GALLERY, MESSAGE, WISHES (keeping original styles) */
+  #counter { padding: 80px 60px; text-align: center; background: linear-gradient(180deg, var(--deep) 0%, var(--surface) 50%, var(--deep) 100%); }
+  .counter-grid { display: flex; gap: 20px; justify-content: center; margin: 40px auto; flex-wrap: wrap; }
+  .counter-box {
+    background: var(--surface2); border: 1px solid rgba(201,168,76,0.15);
+    padding: 28px 32px; text-align: center; min-width: 130px;
+    transition: all 0.3s ease; cursor: pointer;
+  }
+  .counter-box:hover { border-color: rgba(201,168,76,0.6); transform: translateY(-8px) scale(1.02); background: var(--surface); }
+  .counter-num {
+    font-family: 'Cinzel', serif; font-size: 48px; font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .counter-label { font-size: 9px; letter-spacing: 4px; color: var(--text-muted); text-transform: uppercase; font-family: 'Cinzel', serif; margin-top: 6px; }
+
+  #timeline { padding: 100px 40px; max-width: 900px; margin: 0 auto; text-align: center; }
+  .timeline-track { position: relative; margin-top: 60px; padding: 0 20px; }
+  .timeline-track::before {
+    content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(201,168,76,0.4) 10%, rgba(201,168,76,0.4) 90%, transparent);
+    transform: translateX(-50%);
+  }
+  .tl-item { display: flex; margin-bottom: 60px; opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; cursor: pointer; }
+  .tl-item.visible { opacity: 1; transform: translateY(0); }
+  .tl-item:nth-child(even) { flex-direction: row-reverse; }
+  .tl-content {
+    width: calc(50% - 40px); background: var(--surface); border: 1px solid rgba(201,168,76,0.15);
+    padding: 24px 28px; transition: all 0.3s ease;
+  }
+  .tl-item:hover .tl-content { border-color: rgba(201,168,76,0.5); transform: translateY(-5px) scale(1.01); background: var(--surface2); }
+  .tl-item:nth-child(odd) .tl-content { margin-right: auto; text-align: right; }
+  .tl-item:nth-child(even) .tl-content { margin-left: auto; text-align: left; }
+  .tl-year { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px; color: var(--gold); margin-bottom: 8px; }
+  .tl-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--text); }
+  .tl-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .tl-emoji { font-size: 20px; margin-bottom: 6px; display: block; }
+  .tl-dot {
+    position: absolute; left: 50%; top: 28px; width: 12px; height: 12px;
+    background: var(--gold); border-radius: 50%; transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 4px rgba(201,168,76,0.15); transition: all 0.3s;
+  }
+  .tl-item:hover .tl-dot { transform: translate(-50%, -50%) scale(1.5); box-shadow: 0 0 0 8px rgba(201,168,76,0.3); }
+
+  #gallery { padding: 100px 60px; background: linear-gradient(180deg, var(--deep) 0%, var(--surface) 50%, var(--deep) 100%); text-align: center; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin: 60px auto; max-width: 900px; }
+  .gallery-item {
+    position: relative; overflow: hidden; aspect-ratio: 1; background: var(--surface2);
+    border: 1px solid rgba(201,168,76,0.1); cursor: pointer; transition: all 0.3s ease;
+  }
+  .gallery-item.large { grid-column: span 2; aspect-ratio: 2/1; }
+  .gallery-item:hover { border-color: var(--gold); transform: scale(1.02) translateY(-5px); z-index: 5; }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.4s; filter: grayscale(20%) brightness(0.85); }
+  .gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%) brightness(1); }
+  .gallery-overlay {
+    position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.3), transparent);
+    opacity: 0; transition: opacity 0.4s; display: flex; align-items: flex-end; padding: 20px;
+  }
+  .gallery-caption { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; color: var(--white); }
+  .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: rgba(201,168,76,0.3); }
+
+  #lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 500; display: none; align-items: center; justify-content: center; padding: 40px; }
+  #lightbox.open { display: flex; }
+  #lightbox img { max-width: 90vw; max-height: 80vh; object-fit: contain; border: 1px solid var(--gold); }
+  #lightbox-close { position: absolute; top: 24px; right: 32px; font-size: 28px; color: var(--gold); cursor: pointer; background: none; border: none; }
+
+  #message { padding: 120px 60px; text-align: center; max-width: 800px; margin: 0 auto; }
+  .message-card {
+    background: var(--surface); border: 1px solid rgba(201,168,76,0.2);
+    padding: 60px 70px; position: relative; transition: all 0.3s;
+  }
+  .message-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-8px); }
+  .message-card::before, .message-card::after {
+    content: ''; position: absolute; width: 40px; height: 40px;
+    border-color: var(--gold); border-style: solid;
+  }
+  .message-card::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+  .message-card::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+  .big-quote { font-family: 'Cormorant Garamond', serif; font-size: 80px; line-height: 0.5; color: var(--gold); opacity: 0.4; margin-bottom: 20px; }
+  .message-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 3vw, 28px); font-weight: 300; line-height: 1.8; color: var(--text); font-style: italic; min-height: 200px; }
+  .typewriter-cursor { display: inline-block; width: 3px; height: 28px; background: var(--gold); margin-left: 4px; vertical-align: middle; animation: blinkCursor 1s step-end infinite; }
+  @keyframes blinkCursor { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+  .message-sig { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 4px; color: var(--gold); margin-top: 32px; text-transform: uppercase; }
+
+  #wishes { padding: 80px 60px; background: var(--surface); text-align: center; }
+  .wish-form { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+  .wish-form input, .wish-form textarea { background: var(--surface2); border: 1px solid rgba(201,168,76,0.2); color: var(--text); padding: 16px 20px; font-family: 'Montserrat', sans-serif; font-size: 14px; transition: border-color 0.3s; }
+  .wish-form input:focus, .wish-form textarea:focus { border-color: var(--gold); }
+  .wish-btn {
+    background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 16px;
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; cursor: pointer; transition: all 0.3s;
+  }
+  .wish-btn:hover { background: var(--gold); color: var(--black); transform: translateY(-2px); }
+  .wishes-wall { max-width: 900px; margin: 60px auto 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+  .wish-card {
+    background: var(--surface2); border: 1px solid rgba(201,168,76,0.12); padding: 24px;
+    transition: all 0.3s; animation: fadeUp 0.5s ease forwards;
+  }
+  .wish-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-6px) scale(1.02); }
+  .wish-card .wish-name { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px; color: var(--gold); margin-bottom: 10px; }
+  .wish-card .wish-msg { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--text); line-height: 1.7; }
+
+  footer { padding: 60px; text-align: center; border-top: 1px solid rgba(201,168,76,0.1); }
+  footer .footer-crown { font-family: 'Cormorant Garamond', serif; font-size: 52px; color: var(--gold); opacity: 0.3; margin-bottom: 16px; animation: spinSlow 20s linear infinite; display: inline-block; }
+  footer p { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 4px; color: var(--text-muted); text-transform: uppercase; }
+
+  .scroll-reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+  .orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; opacity: 0.04; animation: orbFloat 20s ease-in-out infinite; }
+  .orb1 { width: 600px; height: 600px; background: var(--gold); top: -200px; right: -200px; }
+  .orb2 { width: 400px; height: 400px; background: var(--gold); bottom: 20%; left: -150px; animation-delay: -10s; }
+  @keyframes orbFloat { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(30px,-40px) scale(1.05); } 66% { transform: translate(-20px,30px) scale(0.95); } }
+  @keyframes particleFloat { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.3; } 100% { transform: translateY(-10px) scale(1); opacity: 0; } }
+  @keyframes confettiFall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    nav ul { display: none; }
+    #hero .big-name { font-size: clamp(44px,14vw,80px); }
+    .gallery-grid { grid-template-columns: repeat(2,1fr); }
+    .timeline-track::before { left: 20px; }
+    .tl-item, .tl-item:nth-child(even) { flex-direction: column; padding-left: 52px; }
+    .tl-content, .tl-item:nth-child(odd) .tl-content, .tl-item:nth-child(even) .tl-content { width: 100%; text-align: left; margin: 0; }
+    .tl-content::before { display: none; }
+    .tl-dot { left: 20px; }
+    #message { padding: 80px 24px; }
+    .message-card { padding: 40px 28px; }
+  }
+</style>
 </head>
 <body>
-
-<!-- Custom Cursor -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
+<div class="orb orb1"></div><div class="orb orb2"></div>
+<div id="particles"></div>
 
-<!-- Gold bar top -->
-<div class="gold-bar"></div>
+<!-- FLYING PHOTOS CONTAINER -->
+<div id="flyingPhotosContainer"></div>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#" class="nav-logo">
-  <img src="images/NIVIRA cut.png" alt="Nivira" class="logo-light">
-  <img src="images/NIVIRA cut 2.png" alt="Nivira" class="logo-dark">
-  <span class="logo-text-light">NIVIRA</span>
-  <span class="logo-text-dark">NIVIRA</span>
-</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Get a Quote</a>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<div id="splash"><div class="bg-lines"></div><div class="candles-row" id="candlesRow"></div><div class="ornament">✦ A Celebration of Life ✦</div><h1 id="splashName">Happy Birthday</h1><div class="subtitle">A Man of Legend &amp; Grace</div><div class="divider"><span></span><span style="font-size:18px; color:var(--gold);">✦</span><span></span></div><button class="enter-btn" id="enterBtn"><span>Enter Celebration</span></button></div>
+<div id="lightbox"><button id="lightbox-close" onclick="closeLightbox()">✕</button><img id="lightbox-img" src="" alt=""></div>
+<div id="site"><nav><div class="logo">✦ PATRICK BOMPETSHI ✦</div><ul><li><a href="#hero">Home</a></li><li><a href="#counter">Milestones</a></li><li><a href="#timeline">Timeline</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#wishes">Wishes</a></li></ul><button class="sound-btn" id="soundBtn">♪ Music On</button></nav>
+<section id="hero"><canvas id="hero-canvas"></canvas><div class="bg-video-overlay"></div><div class="content"><p class="pre-title">✦ Celebrating</p><h2>The One &amp; Only</h2><span class="big-name" id="heroName">Patrick Bompetshi</span><p class="tagline">A lifetime of love, wisdom &amp; strength</p><div class="hero-actions"><button class="hero-btn" id="surpriseBtn">🎁 Surprise</button><button class="hero-btn" id="sparkleBtn">✨ Sparkle</button><button class="hero-btn" id="flyPhotosBtn">📸 Fly Memories</button></div></div><div class="gold-line"></div></section>
+<section id="counter" class="scroll-reveal"><div class="section-label">Milestones</div><h2 class="section-title">A Life Well Lived</h2><p class="section-sub">Every moment, a treasure</p><div class="counter-grid" id="counterGrid"></div></section>
+<section id="timeline"><div style="text-align:center;"><div class="section-label scroll-reveal">Journey</div><h2 class="section-title scroll-reveal">Moments That Shaped Him</h2><p class="section-sub scroll-reveal">A life written in golden chapters</p></div><div class="timeline-track" id="timelineTrack" style="max-width:900px; margin:0 auto;"></div></section>
+<section id="gallery"><div class="section-label scroll-reveal">Memories</div><h2 class="section-title scroll-reveal">Through the Years</h2><p class="section-sub scroll-reveal">A gallery of golden moments</p><div class="gallery-grid" id="galleryGrid"></div><p style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:3px; color:var(--text-muted); text-align:center; margin-top:16px;">✧ Click any image to enlarge | Scroll for flying photos ✧</p></section>
+<section id="message"><div class="scroll-reveal"><div class="section-label">From the Heart</div><h2 class="section-title">A Message to Dad</h2></div><div class="message-card scroll-reveal"><span class="big-quote">"</span><div class="message-text" id="messageText"></div><span class="typewriter-cursor" id="typeCursor"></span><p class="message-sig">— With all my love</p></div></section>
+<section id="wishes"><div class="section-label scroll-reveal">Guest Book</div><h2 class="section-title scroll-reveal">Leave Your Wishes</h2><p class="section-sub scroll-reveal">Share a birthday message</p><form class="wish-form scroll-reveal" id="wishForm">
+  <input type="text" id="wishName" name="name" placeholder="Your Name" maxlength="50" required>
+  <textarea id="wishMsg" name="message" placeholder="Your birthday message..." rows="3" maxlength="300" required></textarea>
+  <button class="wish-btn" type="submit" id="addWishBtn"><span>Send Wish on WhatsApp ✦</span></button>
+</form><div class="wishes-wall" id="wishesWall"></div></section>
+<footer><div class="footer-crown">♛</div><p>Happy Birthday Patrick Bompetshi — Celebrating a Legend · Made with love</p><p style="margin-top:12px; font-size:9px; opacity:0.4;">✦ &nbsp; ✦ &nbsp; ✦</p></footer></div>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg">
-    <div class="hero-grid"></div>
-    <div class="hero-orb orb1"></div>
-    <div class="hero-orb orb2"></div>
-    <div class="hero-orb orb3"></div>
-  </div>
-   <!-- Video Background -->
-  <div class="hero-video">
-    <video autoplay muted loop playsinline poster="images/pexels-mikael-blomkvist-6476580.jpg">
-      <source src="images/6561186-uhd_3840_2160_25fps.mp4" type="video/mp4">
-      <!-- Fallback image if video fails -->
-      <img src="images/pexels-mikael-blomkvist-6476580.jpg" alt="Coding setup">
-    </video>
-    <div class="hero-overlay"></div>
-  </div>
-  
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      Available for new projects · South Africa
-    </div>
-    <h1>
-      We build websites
-      <span class="line2" id="swapText">that convert.</span>
-    </h1>
-    <p>
-      <strong>Nivira</strong> crafts high-performance websites for South African businesses.
-      From design to deployment — we handle everything so you can focus on what you do best.
-    </p>
-    <div class="hero-btns">
-      <a href="#work" class="btn-primary"><span>See Our Work</span></a>
-      <a href="#contact" class="btn-outline">Start a Project</a>
-    </div>
-  </div>
-  <div class="hero-stats">
-    <div class="stat-card reveal">
-      <div class="stat-num" data-target="100">0</div>
-      <div class="stat-label">Projects Done</div>
-    </div>
-    <div class="stat-card reveal reveal-delay-1">
-      <div class="stat-num" data-target="100">0%</div>
-      <div class="stat-label">Client Satisfaction</div>
-    </div>
-    <div class="stat-card reveal reveal-delay-2">
-      <div class="stat-num">SA</div>
-      <div class="stat-label">Nationwide</div>
-    </div>
-  </div>
-  <div class="scroll-indicator">
-    <div class="scroll-line"></div>
-    Scroll to explore
-  </div>
-</section>
+<audio id="bgAudio" loop preload="auto">
+  <source src="sound.mp3" type="audio/mpeg">
+  <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_c8c8c8c8c8.mp3?filename=happy-birthday-113941.mp3" type="audio/mpeg">
+</audio>
 
-<!-- MARQUEE -->
-<div class="marquee-section">
-  <div class="marquee-track" id="marqueeTrack">
-    <div class="marquee-item"><span class="dot"></span> Web Design</div>
-    <div class="marquee-item"><span class="dot"></span> SEO Optimisation</div>
-    <div class="marquee-item"><span class="dot"></span> Domain Setup</div>
-    <div class="marquee-item"><span class="dot"></span> Netlify Hosting</div>
-    <div class="marquee-item"><span class="dot"></span> Mobile First</div>
-    <div class="marquee-item"><span class="dot"></span> Google Rankings</div>
-    <div class="marquee-item"><span class="dot"></span> Fast Delivery</div>
-    <div class="marquee-item"><span class="dot"></span> Ongoing Support</div>
-    <div class="marquee-item"><span class="dot"></span> Web Design</div>
-    <div class="marquee-item"><span class="dot"></span> SEO Optimisation</div>
-    <div class="marquee-item"><span class="dot"></span> Domain Setup</div>
-    <div class="marquee-item"><span class="dot"></span> Netlify Hosting</div>
-    <div class="marquee-item"><span class="dot"></span> Mobile First</div>
-    <div class="marquee-item"><span class="dot"></span> Google Rankings</div>
-    <div class="marquee-item"><span class="dot"></span> Fast Delivery</div>
-    <div class="marquee-item"><span class="dot"></span> Ongoing Support</div>
-  </div>
-</div>
+<script>
+// ========== CONFIGURATION ==========
+const CONFIG = {
+  name: "Patrick Bompetshi",
+  age: 54,
+  dob: new Date(1970, 0, 1),
+  timeline: [
+    { year: "1st Birthday", emoji: "🎂", title: "First Birthday", desc: "The journey began with cake and joy." },
+    { year: "Sweet 16", emoji: "🚗", title: "Sweet Sixteen", desc: "Young, free, and full of dreams." },
+    { year: "21st Birthday", emoji: "🥂", title: "Turning 21", desc: "Adulting begins with style." },
+    { year: "30th", emoji: "🏆", title: "The Prime Years", desc: "Building a legacy, finding his path." },
+    { year: "40th", emoji: "🏠", title: "Family Man", desc: "A home, a family, a heart full of love." },
+    { year: "50th", emoji: "👑", title: "The Golden Jubilee", desc: "Half a century of excellence." },
+    { year: "Today", emoji: "🎉", title: "+1 & Fabulous!", desc: "Still the king, still celebrating YOU!" }
+  ],
+  gallery: [
+    { src: "images/Screenshot_20260607_113131_Facebook.jpg", caption: "The Early Years", large: true, placeholder: false },
+    { src: "images/Screenshot_20260607_113022_Facebook.jpg", caption: "A Proud Father", placeholder: false },
+    { src: "images/image-5.jpg", caption: "Family Moments", placeholder: false },
+    { src: "images/-copy.jpg", caption: "Golden Times", placeholder: false },
+    { src: "images/copy2.jpg", caption: "Forever Young", placeholder: false }
+  ],
+  personalMessage: "To the man who taught me that strength is not just muscle, but the quiet courage to show up every day — who built a world for us with his bare hands and never asked for credit. Every lesson, every sacrifice, every silent presence — it carved who I am. Today we celebrate not just a birthday, but a life that has been nothing short of extraordinary. Happy Birthday, Papa!",
+  seedWishes: [
+    { name: "The Family", msg: "Every day with you has been a gift. Happy Birthday — here's to forever." },
+    
+  ]
+};
 
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="services-header">
-    <div>
-      <div class="section-label reveal">What We Do</div>
-      <h2 class="section-title reveal reveal-delay-1">Services built for <span>results</span></h2>
-    </div>
-    <p class="section-sub reveal reveal-delay-2">Every service is designed to grow your business online — not just look good.</p>
-  </div>
-  <div class="services-grid">
+// ========== CREATE FLYING PHOTOS CONTAINER ==========
+if (!document.getElementById('flyingPhotosContainer')) {
+  const container = document.createElement('div');
+  container.id = 'flyingPhotosContainer';
+  container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:998;overflow:hidden;';
+  document.body.appendChild(container);
+}
 
-    <div class="service-card reveal">
-      <div class="service-card-inner">
-        <div class="service-top">
-          <div class="service-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/>
-            </svg>
-          </div>
-          <span class="service-num">01</span>
-        </div>
-        <div class="service-title">Website Design & Development</div>
-        <div class="service-desc">Custom-built static websites — fast, secure, and designed to convert visitors into paying customers. No templates, no WordPress bloat.</div>
-        <div class="service-tags">
-          <span>Mobile First</span><span>Performance</span>
-        </div>
-        <div class="service-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </div>
-      </div>
-    </div>
+// ========== YOUR IMAGES GO HERE ==========
+// 📁 CREATE A FOLDER NAMED "photos" IN THE SAME FOLDER AS index.html
+// 📁 PUT YOUR IMAGES IN THAT FOLDER (example: photos/dad-young.jpg)
+// 📁 THEN LIST THEM BELOW:
 
-    <div class="service-card reveal reveal-delay-1">
-      <div class="service-card-inner">
-        <div class="service-top">
-          <div class="service-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-            </svg>
-          </div>
-          <span class="service-num">02</span>
-        </div>
-        <div class="service-title">SEO, Ads & Google Setup</div>
-        <div class="service-desc">Schema markup, sitemaps, canonical tags, Search Console setup. We make sure Google finds you, understands you, and ranks you.</div>
-        <div class="service-tags">
-          <span>Schema Markup</span><span>Sitemap</span><span>Search Console</span><span>Google Ads</span>
-        </div>
-        <div class="service-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </div>
-      </div>
-    </div>
+const YOUR_FAMILY_PHOTOS = [
+  // 👇 REPLACE THESE WITH YOUR ACTUAL IMAGE PATHS
+  'images/IMG-20260606-WA0007.jpg',      // Add your photo: dad as a young man
+  'images/-copy.jpg',    // Add your photo: wedding day
+  'images/IMG-20260606-WA0010.jpg',         // Add your photo: family portrait
+  'images/copy2.jpg',      // Add your photo: dad smiling
+  'images/IMG-20260606-WA0006.jpg',   // Add your photo: dad laughing
+  'images/image-5.jpg',   // Add your photo: birthday celebration
+ 
+];
 
-    <div class="service-card reveal reveal-delay-2">
-      <div class="service-card-inner">
-        <div class="service-top">
-          <div class="service-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-          </div>
-          <span class="service-num">03</span>
-        </div>
-        <div class="service-title">Domain & Hosting Setup</div>
-        <div class="service-desc">Full domain registration, DNS configuration, SSL certificates, and Netlify deployment. Your site lives where it should — owned by you.</div>
-        <div class="service-tags">
-          <span>DNS Config</span><span>Free SSL</span>
-        </div>
-        <div class="service-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </div>
-      </div>
-    </div>
+// FALLBACK: If you don't have photos yet, these will show instead
+const FALLBACK_PHOTOS = [
+  'https://placehold.co/200x200/C9A84C/FFFFFF?text=DAD',
+  'https://placehold.co/200x200/E8C97A/0A0A0A?text=FAMILY',
+  'https://placehold.co/200x200/D4AF37/0A0A0A?text=LOVE',
+  'https://placehold.co/200x200/F5E6C0/8B6914?text=MEMORIES'
+];
 
-    <div class="service-card reveal reveal-delay-3">
-      <div class="service-card-inner">
-        <div class="service-top">
-          <div class="service-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-          <span class="service-num">04</span>
-        </div>
-        <div class="service-title">Ongoing Maintenance</div>
-        <div class="service-desc">Monthly updates, form monitoring, performance checks, and Google ranking reports. We keep your site running at peak performance.</div>
-        <div class="service-tags">
-          <span>Monthly Updates</span><span>Monitoring</span><span>Reports</span>
-        </div>
-        <div class="service-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </div>
-      </div>
-    </div>
+// ========== FLYING PHOTOS FUNCTION (FIXED) ==========
+const flyingContainer = document.getElementById('flyingPhotosContainer');
+let flyingInterval = null;
 
-  </div>
-</section>
+// Resolve photo list ONCE at startup — not on every flying photo call
+let resolvedPhotos = null;
+function getPhotoList() {
+  if (resolvedPhotos) return resolvedPhotos;
+  // Use real photos if they appear to be real paths (not empty strings)
+  const real = YOUR_FAMILY_PHOTOS.filter(p => p && p.trim() !== '');
+  resolvedPhotos = real.length > 0 ? real : FALLBACK_PHOTOS;
+  return resolvedPhotos;
+}
 
-<!-- WORK -->
-<section class="work" id="work">
-  <div class="work-header">
-    <div class="section-label reveal">Our Work</div>
-    <h2 class="section-title reveal reveal-delay-1">Projects that <span>perform</span></h2>
-    <p class="section-sub reveal reveal-delay-2">Real businesses, real results. Each project built from scratch — no templates.</p>
-  </div>
-  <div class="projects-grid">
+function createFlyingPhoto() {
+  if (!flyingContainer) return;
+  const photos = getPhotoList();
+  const photo = document.createElement('img');
+  photo.style.cssText = 'position:fixed;width:120px;height:120px;object-fit:cover;border-radius:12px;border:3px solid #C9A84C;box-shadow:0 10px 25px rgba(0,0,0,0.3);pointer-events:none;z-index:999;opacity:0;will-change:transform,opacity;';
+  photo.src = photos[Math.floor(Math.random() * photos.length)];
+  photo.alt = 'Birthday Memory';
+  const randomY = Math.random() * (window.innerHeight - 150);
+  photo.style.top = randomY + 'px';
+  photo.style.left = '-150px';
+  flyingContainer.appendChild(photo);
+  requestAnimationFrame(() => {
+    photo.style.transition = 'transform 2.8s ease-out, opacity 0.4s';
+    photo.style.transform = `translateX(${window.innerWidth + 200}px) rotate(10deg)`;
+    photo.style.opacity = '1';
+  });
+  setTimeout(() => { if (photo.parentNode) photo.remove(); }, 3200);
+}
 
-    <div class="project-card featured reveal">
-      <div class="project-img">
-        <img src="images/cover-copy.jpg">
-        <div class="project-overlay">
-          <a href="https://www.bsapplianceexpectrepairs.co.za" target="_blank" class="overlay-link">
-            View Live Site →
-          </a>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-tag">Local Business · Johannesburg</div>
-        <div class="project-title">BS Appliance Expect Repair</div>
-        <div class="project-desc">Full business website for a Johannesburg appliance repair company. SEO-optimised, POPIA-compliant, with working contact forms, Google Search Console setup, and full domain ownership transfer.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Forms</span>
-          <span class="tech-tag">SEO</span>
-          <span class="tech-tag">DNS Setup</span>
-          <span class="tech-tag">POPIA</span>
-        </div>
-      </div>
-    </div>
+function startFlyingPhotos() {
+  if (flyingInterval) clearInterval(flyingInterval);
+  // Create burst of 5 photos immediately
+  for(let i = 0; i < 5; i++) {
+    setTimeout(() => createFlyingPhoto(), i * 200);
+  }
+  // Then continue every 1.5 seconds
+  flyingInterval = setInterval(createFlyingPhoto, 1500);
+  // Add confetti for extra magic
+  for(let i = 0; i < 30; i++) createMiniConfetti();
+}
 
-    <div class="project-card reveal reveal-delay-1">
-      <div class="project-img" style="background:linear-gradient(135deg,#1a1f5e 0%,#c9a84c 100%);">
-       <img src="images/shutterstock_313680314.jpg">
-        <div class="project-overlay">
-          <a href="#contact" class="overlay-link">Coming Soon →</a>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-tag">Beauty & Lifestyle</div>
-        <div class="project-title">Salon Website</div>
-        <div class="project-desc">Premium salon website currently in development. Booking integration, gallery, services menu, and full SEO setup.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Booking</span>
-          <span class="tech-tag">Gallery</span>
-          <span class="tech-tag">SEO</span>
-        </div>
-      </div>
-    </div>
+function stopFlyingPhotos() {
+  if (flyingInterval) {
+    clearInterval(flyingInterval);
+    flyingInterval = null;
+  }
+}
 
-    <div class="project-card reveal reveal-delay-2">
-      <div class="project-img" style="background:linear-gradient(135deg,#0a3d2e 0%,#00aaff 100%);">
-        <div class="project-mockup">
-          <div class="mockup-bar">
-            <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
-            <div class="mockup-url"></div>
-          </div>
-          <div class="mockup-lines">
-            <div class="mockup-line"></div>
-            <div class="mockup-line shorter"></div>
-            <div class="mockup-line short"></div>
-          </div>
-        </div>
-        <div class="project-overlay">
-          <a href="#contact" class="overlay-link">Your Project Here →</a>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-tag">Your Business</div>
-        <div class="project-title">Next Project</div>
-        <div class="project-desc">Ready to build something great? We're taking on new clients across South Africa. Let's create something that works for your business.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Any Industry</span>
-          <span class="tech-tag">Nationwide</span>
-          <span class="tech-tag">Fast Delivery</span>
-        </div>
-      </div>
-    </div>
+// ========== SPARKLE BUTTON (FIXED - no lag) ==========
+document.getElementById('sparkleBtn')?.addEventListener('click', () => {
+  createMiniConfetti(60); // single capped burst
+  const bigName = document.querySelector('#hero .big-name');
+  if (bigName) {
+    bigName.style.transition = 'text-shadow 0.2s';
+    bigName.style.textShadow = '0 0 30px gold, 0 0 60px #C9A84C';
+    setTimeout(() => { bigName.style.textShadow = ''; }, 500);
+  }
+  // Pooled sparkle emojis — max 12, reused
+  const emojis = ['✨','⭐','🌟','💫'];
+  for (let i = 0; i < 12; i++) {
+    const sparkle = document.createElement('div');
+    sparkle.textContent = emojis[i % emojis.length];
+    sparkle.style.cssText = `position:fixed;left:${Math.random()*100}vw;top:${Math.random()*100}vh;font-size:${Math.random()*20+12}px;pointer-events:none;z-index:9999;will-change:transform,opacity;animation:sparkleFloat ${Math.random()*0.6+0.4}s ease-out forwards;`;
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 1000);
+  }
+});
 
-  </div>
-</section>
+// ========== FLY MEMORIES BUTTON (FIXED) ==========
+document.getElementById('flyPhotosBtn')?.addEventListener('click', () => {
+  startFlyingPhotos();
+  createMiniConfetti(30); // was 50 loose calls
+});
 
-<!-- PROCESS -->
-<section class="process" id="process">
-  <div class="process-header">
-    <div class="section-label reveal">How It Works</div>
-    <h2 class="section-title reveal reveal-delay-1">From idea to <span>live site</span></h2>
-    <p class="section-sub reveal reveal-delay-2">A clear, simple process that keeps you informed at every step.</p>
-  </div>
-  <div class="process-steps">
-    <div class="step reveal">
-      <div class="step-num-wrap"><div class="step-num">01</div></div>
-      <div class="step-title">Discovery Call</div>
-      <div class="step-desc">We learn about your business, goals, and target customers. No jargon — just a real conversation.</div>
-    </div>
-    <div class="step reveal reveal-delay-1">
-      <div class="step-num-wrap"><div class="step-num">02</div></div>
-      <div class="step-title">Design & Build</div>
-      <div class="step-desc">We design and develop your site from scratch. You see progress at every stage and can request changes.</div>
-    </div>
-    <div class="step reveal reveal-delay-2">
-      <div class="step-num-wrap"><div class="step-num">03</div></div>
-      <div class="step-title">Review & Refine</div>
-      <div class="step-desc">You review the full site before anything goes live. We fine-tune every detail until it's exactly right.</div>
-    </div>
-    <div class="step reveal reveal-delay-3">
-      <div class="step-num-wrap"><div class="step-num">04</div></div>
-      <div class="step-title">Launch & Grow</div>
-      <div class="step-desc">We deploy, set up Google, and hand over full ownership. Then we stay available for ongoing support.</div>
-    </div>
-  </div>
-</section>
+// ========== SURPRISE BUTTON (FIXED - no lag) ==========
+document.getElementById('surpriseBtn')?.addEventListener('click', () => {
+  alert('🎉 HAPPY BIRTHDAY, PAPA! 🎉\nYou are our greatest blessing!');
+  createMiniConfetti(60); // was 150 — capped to stay smooth
+  blowAllCandles();
+  startFlyingPhotos();
+});
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-grid">
-    <div class="about-visual reveal">
-      
-      <div class="about-img-wrap">
-        
-        <div class="about-pattern"> <img src="images/pexels-mikael-blomkvist-6476580.jpg"></div>
-       
-        <div class="about-center-card">
-          <div class="about-logo-display">NI<span style="color:var(--cyan)">V</span>IRA</div>
-          <p>Building websites that work as hard as you do — across South Africa.</p>
-        </div>
-      </div>
-      <div class="about-float-badge badge-top">
-        <div class="badge-icon blue">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <div class="badge-text">
-          <strong>Fast Sites</strong>
-          <span>80+ PageSpeed score</span>
-        </div>
-      </div>
-      <div class="about-float-badge badge-bottom">
-        <div class="badge-icon gold">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div class="badge-text">
-          <strong>Quick Delivery</strong>
-          <span>7–14 day turnaround</span>
-        </div>
-      </div>
-    </div>
-    <div class="about-content">
-      <div class="section-label reveal">About Nivira</div>
-      <h2 class="section-title reveal reveal-delay-1">Built for <span>South African</span> businesses</h2>
-      <p class="reveal reveal-delay-2">Nivira is a South African web development studio focused on one thing — building websites that actually bring in customers. We don't use templates or page builders. Every site is hand-coded for maximum speed, SEO, and results.</p>
-      <p class="reveal reveal-delay-2">We work with businesses of all sizes across South Africa — from local service providers to nationwide brands. Our clients own everything we build. No lock-in, no monthly platform fees.</p>
-      <div class="about-values reveal reveal-delay-3">
-        <div class="value-item">
-          <div class="value-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="value-text">Custom Websites</div>
-        </div>
-        <div class="value-item">
-          <div class="value-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="value-text">You own everything</div>
-        </div>
-        <div class="value-item">
-          <div class="value-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="value-text">SEO built-in from day one</div>
-        </div>
-        <div class="value-item">
-          <div class="value-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="value-text">Free SSL + fast hosting</div>
-        </div>
-        <div class="value-item">
-          <div class="value-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="value-text">7–14 day delivery</div>
-        </div>
-        <div class="value-item">
-          <div class="value-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="value-text">Nationwide SA coverage</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+// ========== SPARKLE FLOAT ANIMATION ==========
+if (!document.getElementById('sparkleFloatStyle')) {
+  const sparkleStyle = document.createElement('style');
+  sparkleStyle.id = 'sparkleFloatStyle';
+  sparkleStyle.textContent = `
+    @keyframes sparkleFloat {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100px) scale(0); opacity: 0; }
+    }
+    .flying-photo {
+      position: fixed;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 3px solid #C9A84C;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      pointer-events: none;
+      z-index: 999;
+    }
+  `;
+  document.head.appendChild(sparkleStyle);
+}
 
-<!-- TESTIMONIAL -->
-<section class="testimonial">
-  <div class="testi-inner reveal">
-    <span class="quote-mark">"</span>
-    <p class="testi-text">"The new website is night and day compared to the old one. It loads fast, looks professional, and we're already getting enquiries through the contact form."</p>
-    <div class="testi-author">
-      <div class="testi-avatar"><img src="images/1772887049433(2).png"></div>
-      <div class="testi-info">
-        <strong>BS Appliance Expect Repair</strong>
-        <span>Appliance Repair · Johannesburg</span>
-        <div class="testi-stars">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+// ========== SPARKLE TRAIL EFFECT (throttled - no DOM spam) ==========
+const TRAIL_POOL_SIZE = 20;
+const trailPool = [];
+for (let i = 0; i < TRAIL_POOL_SIZE; i++) {
+  const dot = document.createElement('div');
+  dot.style.cssText = 'position:fixed;width:4px;height:4px;background:#C9A84C;border-radius:50%;pointer-events:none;z-index:9997;opacity:0;will-change:transform,opacity;';
+  document.body.appendChild(dot);
+  trailPool.push({ el: dot, active: false });
+}
+let trailIndex = 0, lastTrailTime = 0;
+document.addEventListener('mousemove', (e) => {
+  const now = Date.now();
+  if (now - lastTrailTime < 40) return; // max ~25 per second
+  lastTrailTime = now;
+  const slot = trailPool[trailIndex % TRAIL_POOL_SIZE];
+  trailIndex++;
+  slot.el.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  slot.el.style.opacity = '1';
+  slot.el.style.transition = 'none';
+  requestAnimationFrame(() => {
+    slot.el.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+    slot.el.style.opacity = '0';
+    slot.el.style.transform = `translate(${e.clientX}px, ${e.clientY - 16}px) scale(0)`;
+  });
+});
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-grid">
-    <div class="contact-info">
-      <div class="section-label reveal">Contact</div>
-      <h2 class="section-title reveal reveal-delay-1">Let's build something <span>great</span></h2>
-      <p class="reveal reveal-delay-2">Ready to get a website that works for your business? Tell us about your project and we'll get back to you within 24 hours.</p>
-      <div class="contact-items reveal reveal-delay-3">
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 11.9a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <div class="contact-item-text">
-            <strong>Call</strong>
-            <span>+27 066 442 2446</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </div>
-          <div class="contact-item-text">
-            <strong>Email</strong>
-            <span>hello@nivira.co.za</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div class="contact-item-text">
-            <strong>Location</strong>
-            <span>Johannesburg · Nationwide SA</span>
-          </div>
-        </div>
-      </div>
-      <div class="social-row reveal reveal-delay-4">
-        <a href="#" class="social-btn" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-        <a href="#" class="social-btn" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="#" class="social-btn" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="reveal reveal-delay-2">
-      <div class="contact-form-wrap">
-        <form id="contactForm" name="contactForm" method="POST" data-netlify="true" netlify-honeypot="bot-field" netlify>
-          <input type="hidden" name="form-name" value="contactForm">
-          <p style="display:none"><label>Don't fill: <input name="bot-field"></label></p>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Full Name</label>
-              <input type="text" name="name" placeholder="John Dlamini" required>
-            </div>
-            <div class="form-group">
-              <label>Phone Number</label>
-              <input type="tel" name="phone" placeholder="+27 XX XXX XXXX" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" name="email" placeholder="john@business.co.za" required>
-          </div>
-          <div class="form-group">
-            <label>Service Needed</label>
-            <select name="service" required>
-              <option value="" disabled selected>Select a service…</option>
-              <option>Website Design & Development</option>
-              <option>SEO & Google Setup</option>
-              <option>Domain & Hosting Setup</option>
-              <option>Ongoing Maintenance</option>
-              <option>Full Package (All of the above)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Tell Us About Your Project</label>
-            <textarea name="message" placeholder="What does your business do? What do you need the website to achieve?" required></textarea>
-          </div>
-          <button type="submit" class="form-submit"><span>Send Message →</span></button>
-        </form>
-        <div class="form-success" id="formSuccess">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <h4>Message Sent!</h4>
-          <p>We'll get back to you within 24 hours.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+if (!document.getElementById('sparkleFadeStyle')) {
+  const fadeStyle = document.createElement('style');
+  fadeStyle.textContent = `
+    @keyframes sparkleFade {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0); }
+    }
+  `;
+  document.head.appendChild(fadeStyle);
+}
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <span class="logo-text">NI<span>V</span>IRA</span>
-      <p>Websites that turn visitors into customers. Built for South African businesses — nationwide.</p>
-      <div class="social-row">
-        <a href="#" class="social-btn" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-        <a href="#" class="social-btn" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="footer-links">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#services">Web Design & Dev</a></li>
-        <li><a href="#services">SEO & Google</a></li>
-        <li><a href="#services">Domain & Hosting</a></li>
-        <li><a href="#services">Maintenance</a></li>
-      </ul>
-    </div>
-    <div class="footer-links">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="#work">Our Work</a></li>
-        <li><a href="#process">Our Process</a></li>
-        <li><a href="#about">About Nivira</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Nivira. All rights reserved. · <a href="privacy-policy.html">Privacy Policy</a></p>
-    <p>Designed & built by <a href="#">Nivira</a> · Johannesburg, South Africa 🇿🇦</p>
-  </div>
-</footer>
+// ========== PARALLAX SCROLL HANDLER ==========
+function handleParallax() {
+  const scrolled = window.pageYOffset;
+  const heroContent = document.querySelector('#hero .content');
+  if (heroContent) {
+    heroContent.style.transform = `translateY(${scrolled * 0.15}px)`;
+  }
+}
 
-<!--WhatsApp Floating button--> 
- <!-- FLOATING CONTACT HUB (independent, clean) -->
-    <div class="floating-contact-wrapper" id="floatingHub">
-        <!-- Action menu: WhatsApp, Email, Call (like hamburger upward) -->
-        <div class="contact-actions-menu" id="contactMenu">
-            <!-- WhatsApp option -->
-            <a href="https://wa.me/+27731753476?text=Hello!%20I%20need%20assistance%20please" 
-               class="contact-action-btn whatsapp-item" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               id="whatsappBtn">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-                    <path d="M19.077 4.928C17.191 3.041 14.683 2 12.006 2 6.798 2 2.548 6.193 2.54 11.393c-.003 1.748.456 3.455 1.328 4.965L2.258 21.5l5.272-1.521c1.458.81 3.104 1.242 4.824 1.246h.004c5.202 0 9.458-4.195 9.466-9.396.004-2.51-.973-4.87-2.86-6.757l.113-.144zM12.052 19.92h-.003c-1.49 0-2.95-.403-4.216-1.163l-.302-.18-3.128.903.972-3.044-.177-.314c-.83-1.467-1.27-3.136-1.267-4.84.008-4.33 3.535-7.855 7.878-7.855 2.104 0 4.08.82 5.567 2.309 1.486 1.488 2.304 3.465 2.3 5.568-.008 4.33-3.536 7.857-7.874 7.857v-.001zm4.32-5.883c-.237-.12-1.398-.69-1.615-.77-.216-.078-.374-.12-.532.117-.158.237-.613.77-.752.928-.14.158-.278.178-.515.06-.237-.12-1.002-.37-1.91-1.182-.706-.63-1.183-1.408-1.322-1.647-.14-.238-.015-.367.105-.486.108-.108.237-.282.355-.423.118-.142.158-.237.237-.395.08-.158.04-.296-.02-.414-.06-.118-.532-1.283-.73-1.757-.192-.46-.387-.398-.532-.405-.138-.007-.296-.01-.454-.01-.158 0-.415.06-.632.296-.217.237-.83.81-.83 1.977 0 1.166.85 2.293.968 2.452.118.158 1.647 2.52 3.99 3.53 1.402.604 1.953.66 2.654.554.8-.12 1.617-.652 1.844-1.28.227-.63.227-1.17.158-1.28-.07-.112-.23-.178-.467-.298l-.023-.007z" fill="#25D366"/>
-                </svg>
-                <span>WhatsApp</span>
-            </a>
-            
-            <!-- Email option -->
-            <a href="mailto:bompetshitony@gmail.com?subject=Support%20Inquiry%20via%20Contact%20Hub&body=Hi%2C%20I%27d%20like%20to%20get%20in%20touch%20regarding..." 
-               class="contact-action-btn email-item" 
-               id="emailBtn">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-                    <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6ZM20 6L12 11L4 6H20ZM20 18H4V8L12 13L20 8V18Z" fill="#EA4335"/>
-                </svg>
-                <span>Email</span>
-            </a>
-            
-            <!-- Phone Call option -->
-            <a href="tel:+27664422446" 
-               class="contact-action-btn call-item" 
-               id="callBtn">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-                    <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.68 14.91 16.08 14.82 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.24 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="#1e6fdf"/>
-                </svg>
-                <span>Call us</span>
-            </a>
-        </div>
-        
-        <!-- Main Floating Button (Contact Us trigger) -->
-        <div class="main-contact-fab" id="mainFab">
-            <div class="pulse-ring"></div>
-            <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14h-4.5L12 19.5 8.5 16H4V4h16v12z"/>
-                <path d="M7 9h10M7 13h6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-            <span class="fab-hover-tip">Contact Us</span>
-        </div>
-    </div>
+// ========== REST OF YOUR ORIGINAL CODE (preserved) ==========
+document.getElementById('splashName').textContent = 'Happy Birthday';
+document.querySelector('nav .logo').innerHTML = '✦ ' + CONFIG.name + ' ✦';
+document.getElementById('heroName').textContent = CONFIG.name;
 
-   
-<!--End of button-->
+// Candles
+const candlesRow = document.getElementById('candlesRow');
+for (let i = 0; i < Math.min(CONFIG.age, 12); i++) {
+  const candleDiv = document.createElement('div');
+  candleDiv.className = 'candle';
+  candleDiv.innerHTML = `<div class="flame" style="animation-delay:${Math.random()*0.6}s"></div><div class="candle-body"></div><div class="candle-base"></div>`;
+  candleDiv.addEventListener('click', (e) => { e.stopPropagation(); blowOutCandle(candleDiv); });
+  candlesRow.appendChild(candleDiv);
+}
 
-<script src="Script.js">
+function blowOutCandle(candleDiv) {
+  const flame = candleDiv.querySelector('.flame');
+  if (flame && !flame.classList.contains('extinguished')) {
+    flame.classList.add('extinguished');
+    createMiniConfetti(20);
+  }
+}
+
+
+// Confetti pool — pre-created, reused, never exceeds 80 in DOM at once
+const CONFETTI_MAX = 80;
+let activeConfetti = 0;
+function createMiniConfetti(count = 30) {
+  count = Math.min(count, CONFETTI_MAX - activeConfetti); // never exceed cap
+  if (count <= 0) return;
+  const frag = document.createDocumentFragment();
+  const colors = ['#C9A84C','#E8C97A','#FFD700','#F5E6C0','#FF8C00','#FFF'];
+  for (let i = 0; i < count; i++) {
+    const conf = document.createElement('div');
+    const size = Math.random() * 6 + 3;
+    const duration = Math.random() * 1.5 + 0.8;
+    conf.style.cssText = `position:fixed;width:${size}px;height:${size}px;background:${colors[Math.floor(Math.random()*colors.length)]};left:${Math.random()*100}%;top:30%;pointer-events:none;z-index:9999;border-radius:2px;will-change:transform,opacity;animation:confettiFall ${duration}s linear forwards;`;
+    frag.appendChild(conf);
+    activeConfetti++;
+    setTimeout(() => { conf.remove(); activeConfetti = Math.max(0, activeConfetti - 1); }, duration * 1000 + 100);
+  }
+  document.body.appendChild(frag);
+}
+
+
+const styleSheet2 = document.createElement("style");
+styleSheet2.textContent = `@keyframes confettiFall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(360deg); opacity: 0; } }`;
+document.head.appendChild(styleSheet2);
+
+function blowAllCandles() {
+  document.querySelectorAll('.candle .flame').forEach(flame => {
+    if (!flame.classList.contains('extinguished')) flame.classList.add('extinguished');
+  });
+  createMiniConfetti(60);
+}
+
+// Sound
+let soundOn = false;
+const audio = document.getElementById('bgAudio');
+const soundBtn = document.getElementById('soundBtn');
+
+function toggleSound() {
+  if (!audio) return;
+  if (soundOn) {
+    audio.pause();
+    soundOn = false;
+    soundBtn.textContent = '♪ Music On';
+  } else {
+    audio.play().then(() => {
+      soundOn = true;
+      soundBtn.textContent = '♬ Music Off';
+    }).catch(() => {
+      soundBtn.textContent = '♪ Click to Play';
+    });
+  }
+}
+soundBtn.addEventListener('click', toggleSound);
+
+document.getElementById('enterBtn').addEventListener('click', () => {
+  document.getElementById('splash').classList.add('exit');
+  setTimeout(() => {
+    document.getElementById('splash').style.display = 'none';
+    document.getElementById('site').classList.add('visible');
+    if (!soundOn && audio) {
+      audio.play().then(() => {
+        soundOn = true;
+        soundBtn.textContent = '♬ Music Off';
+      }).catch(() => {});
+    }
+    startFlyingPhotos();
+  }, 900);
+});
+
+// Custom cursor
+const cursor = document.getElementById('cursor'), ring = document.getElementById('cursorRing');
+// Use transform instead of left/top — GPU composited, zero layout cost
+cursor.style.cssText += 'left:0;top:0;will-change:transform;';
+ring.style.cssText += 'left:0;top:0;will-change:transform;';
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+function animateCursor() {
+  cursor.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Hero canvas
+const heroCanvas = document.getElementById('hero-canvas');
+const hctx = heroCanvas.getContext('2d');
+function resizeHero() { heroCanvas.width = window.innerWidth; heroCanvas.height = window.innerHeight; }
+resizeHero(); window.addEventListener('resize', resizeHero);
+const stars = Array.from({length: 120}, () => ({ x: Math.random(), y: Math.random(), r: Math.random()*1.5+0.3, s: Math.random()*0.0003+0.0001, a: Math.random()*Math.PI*2, o: Math.random()*0.6+0.1, p: Math.random()*Math.PI*2 }));
+function drawHero(t) {
+  hctx.clearRect(0,0,heroCanvas.width,heroCanvas.height);
+  stars.forEach(s => {
+    const x = (s.x + s.s * t * Math.cos(s.a)) % 1;
+    const y = (s.y + s.s * t * Math.sin(s.a) * 0.3) % 1;
+    const opacity = s.o * (0.6 + 0.4 * Math.sin(t * 0.001 + s.p));
+    hctx.beginPath();
+    hctx.arc(x * heroCanvas.width, y * heroCanvas.height, s.r, 0, Math.PI*2);
+    hctx.fillStyle = `rgba(201,168,76,${opacity})`;
+    hctx.fill();
+  });
+  requestAnimationFrame(drawHero);
+}
+drawHero(0);
+
+// Particles
+const pContainer = document.getElementById('particles');
+for(let i=0;i<18;i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.cssText = `width:${Math.random()*3+1}px;height:${Math.random()*3+1}px;left:${Math.random()*100}%;animation-duration:${12+Math.random()*18}s;animation-delay:${-Math.random()*20}s;`;
+  pContainer.appendChild(p);
+}
+
+// Counters
+const counterGrid = document.getElementById('counterGrid');
+function updateCounters() {
+  const now = new Date();
+  const ms = now - CONFIG.dob;
+  const days = Math.floor(ms / 86400000);
+  const years = CONFIG.age;
+  const months = years * 12 + now.getMonth() - CONFIG.dob.getMonth();
+  counterGrid.innerHTML = [
+    { num: years, label: 'Years Young' },
+    { num: months.toLocaleString(), label: 'Months of Glory' },
+    { num: days.toLocaleString(), label: 'Remarkable Days' },
+    { num: (years * 365 * 24).toLocaleString(), label: 'Hours of Legacy' }
+  ].map(i => `<div class="counter-box" onclick="createMiniConfetti()"><span class="counter-num">${i.num}</span><span class="counter-label">${i.label}</span></div>`).join('');
+}
+updateCounters();
+
+// Timeline
+const track = document.getElementById('timelineTrack');
+CONFIG.timeline.forEach(item => {
+  track.innerHTML += `<div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><span class="tl-emoji">${item.emoji}</span><div class="tl-year">${item.year}</div><div class="tl-title">${item.title}</div><div class="tl-desc">${item.desc}</div></div></div>`;
+});
+
+// Gallery
+const galleryGrid = document.getElementById('galleryGrid');
+CONFIG.gallery.forEach(item => {
+  const el = document.createElement('div');
+  el.className = 'gallery-item' + (item.large ? ' large' : '');
+  if (!item.placeholder && item.src) {
+    el.innerHTML = `<img src="${item.src}" alt="${item.caption}"><div class="gallery-overlay"><div class="gallery-caption">${item.caption}</div></div>`;
+    el.addEventListener('click', () => openLightbox(item.src));
+  } else {
+    el.innerHTML = `<div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Add Photo</span><span style="font-size:8px;">${item.caption}</span></div>`;
+    el.addEventListener('click', () => alert('📸 Add your own family photos!\n\nCreate a "photos" folder and add your images.'));
+  }
+  galleryGrid.appendChild(el);
+});
+
+function openLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox').classList.add('open'); }
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+document.getElementById('lightbox').addEventListener('click', e => { if(e.target === e.currentTarget) closeLightbox(); });
+
+// Typewriter
+const msgDiv = document.getElementById('messageText');
+let msgIndex = 0;
+function typeMessage() {
+  if (msgIndex < CONFIG.personalMessage.length) {
+    msgDiv.innerHTML += CONFIG.personalMessage.charAt(msgIndex);
+    msgIndex++;
+    setTimeout(typeMessage, 35);
+  } else {
+    document.getElementById('typeCursor').style.display = 'none';
+  }
+}
+const msgObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting && msgIndex === 0) typeMessage();
+}, { threshold: 0.3 });
+msgObserver.observe(msgDiv);
+
+// Wishes
+// Wishes — sends directly to WhatsApp
+const WHATSAPP_NUMBER = '270833551022'; // ← REPLACE with dad's number, country code, no + or spaces e.g. 27821234567
+
+let wishes = [...CONFIG.seedWishes];
+function renderWishes() {
+  const wall = document.getElementById('wishesWall');
+  wall.innerHTML = wishes.map(w => `<div class="wish-card"><div class="wish-name">✦ ${escapeHtml(w.name)}</div><div class="wish-msg">${escapeHtml(w.msg)}</div></div>`).join('');
+}
+function escapeHtml(s) { return s.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[m])); }
+
+document.getElementById('wishForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('wishName').value.trim();
+  const msg  = document.getElementById('wishMsg').value.trim();
+  if (!name || !msg) return;
+
+  // Show card on page instantly
+  wishes.unshift({ name, msg });
+  renderWishes();
+  document.getElementById('wishName').value = '';
+  document.getElementById('wishMsg').value  = '';
+  createMiniConfetti(50);
+
+  // Open WhatsApp with pre-filled message
+  const text = encodeURIComponent(`🎂 Birthday Wish from ${name}:\n\n"${msg}"\n\n✦ Sent from your birthday celebration site`);
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
+});
+renderWishes();
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.scroll-reveal, .tl-item').forEach(el => observer.observe(el));
+
+// Parallax scroll
+window.addEventListener('scroll', () => {
+  handleParallax();
+  const y = window.scrollY;
+  if (heroCanvas) heroCanvas.style.transform = `translateY(${y * 0.2}px)`;
+});
+
+window.createMiniConfetti = createMiniConfetti;
+window.blowAllCandles = blowAllCandles;
+window.createFlyingPhoto = createFlyingPhoto;
+window.startFlyingPhotos = startFlyingPhotos;
+
+console.log('🎉 Birthday page loaded! Click Sparkle, Fly Memories, or Surprise for magic!');
 </script>
 </body>
 </html>
