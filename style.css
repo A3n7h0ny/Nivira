@@ -56,7 +56,7 @@ nav{
   display:flex;align-items:center;justify-content:space-between;
   background: transparent;
   backdrop-filter: blur(3px);
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
   transition:all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
