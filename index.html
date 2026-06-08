@@ -13,7 +13,8 @@
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,6 +39,7 @@
     <li><a href="#work">Work</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get a Quote</a>
@@ -56,10 +58,10 @@
   </div>
    <!-- Video Background -->
   <div class="hero-video">
-    <video autoplay muted loop playsinline poster="images/pexels-mikael-blomkvist-6476580.jpg">
-      <source src="images/6561186-uhd_3840_2160_25fps.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline poster="">
+      <source src="images/gaa.mp4" type="video/mp4">
       <!-- Fallback image if video fails -->
-      <img src="images/pexels-mikael-blomkvist-6476580.jpg" alt="Coding setup">
+      <img src="" alt="Coding setup">
     </video>
     <div class="hero-overlay"></div>
   </div>
@@ -229,76 +231,59 @@
     <h2 class="section-title reveal reveal-delay-1">Projects that <span>perform</span></h2>
     <p class="section-sub reveal reveal-delay-2">Real businesses, real results. Each project built from scratch — no templates.</p>
   </div>
-  <div class="projects-grid">
+  <div class="projects-bento">
 
-    <div class="project-card featured reveal">
-      <div class="project-img">
-        <img src="images/cover-copy.jpg">
-        <div class="project-overlay">
-          <a href="https://www.bsapplianceexpectrepairs.co.za" target="_blank" class="overlay-link">
-            View Live Site →
-          </a>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-tag">Local Business · Johannesburg</div>
-        <div class="project-title">BS Appliance Expect Repair</div>
-        <div class="project-desc">Full business website for a Johannesburg appliance repair company. SEO-optimised, POPIA-compliant, with working contact forms, Google Search Console setup, and full domain ownership transfer.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Forms</span>
-          <span class="tech-tag">SEO</span>
-          <span class="tech-tag">DNS Setup</span>
-          <span class="tech-tag">POPIA</span>
+    <!-- LEFT: tall featured card -->
+    <div class="bento-card bento-featured reveal">
+      <img src="images/cover-copy.jpg" alt="BS Appliance Expect Repair" class="bento-img">
+      <div class="bento-gradient"></div>
+      <div class="bento-content">
+        <div class="bento-tag">Local Business · Johannesburg</div>
+        <div class="bento-title">BS Appliance Expect Repair</div>
+        <div class="bento-desc">Full business website for a Johannesburg appliance repair company. SEO-optimised, POPIA-compliant, with working contact forms and Google Search Console setup.</div>
+        <div class="bento-footer">
+          <div class="bento-tech">
+            <span>Forms</span><span>SEO</span><span>DNS Setup</span><span>POPIA</span>
+          </div>
+          <a href="https://www.bsapplianceexpectrepairs.co.za" target="_blank" class="bento-link">View Live →</a>
         </div>
       </div>
     </div>
 
-    <div class="project-card reveal reveal-delay-1">
-      <div class="project-img" style="background:linear-gradient(135deg,#1a1f5e 0%,#c9a84c 100%);">
-       <img src="images/shutterstock_313680314.jpg">
-        <div class="project-overlay">
-          <a href="#contact" class="overlay-link">Coming Soon →</a>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-tag">Beauty & Lifestyle</div>
-        <div class="project-title">Salon Website</div>
-        <div class="project-desc">Premium salon website currently in development. Booking integration, gallery, services menu, and full SEO setup.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Booking</span>
-          <span class="tech-tag">Gallery</span>
-          <span class="tech-tag">SEO</span>
-        </div>
-      </div>
-    </div>
+    <!-- RIGHT: two stacked cards -->
+    <div class="bento-right">
 
-    <div class="project-card reveal reveal-delay-2">
-      <div class="project-img" style="background:linear-gradient(135deg,#0a3d2e 0%,#00aaff 100%);">
-        <div class="project-mockup">
-          <div class="mockup-bar">
-            <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
-            <div class="mockup-url"></div>
+      <div class="bento-card reveal reveal-delay-1">
+        <img src="images/shutterstock_313680314.jpg" alt="Eccentric Salon" class="bento-img">
+        <div class="bento-gradient"></div>
+        <div class="bento-content">
+          <div class="bento-tag">Beauty & Lifestyle</div>
+          <div class="bento-title">Eccentric Salon</div>
+          <div class="bento-desc">Premium salon website with booking integration, gallery, and full SEO setup.</div>
+          <div class="bento-footer">
+            <div class="bento-tech">
+              <span>Booking</span><span>Gallery</span><span>SEO</span>
+            </div>
+            <a href="#contact" class="bento-link">Coming Soon →</a>
           </div>
-          <div class="mockup-lines">
-            <div class="mockup-line"></div>
-            <div class="mockup-line shorter"></div>
-            <div class="mockup-line short"></div>
-          </div>
-        </div>
-        <div class="project-overlay">
-          <a href="#contact" class="overlay-link">Your Project Here →</a>
         </div>
       </div>
-      <div class="project-info">
-        <div class="project-tag">Your Business</div>
-        <div class="project-title">Next Project</div>
-        <div class="project-desc">Ready to build something great? We're taking on new clients across South Africa. Let's create something that works for your business.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Any Industry</span>
-          <span class="tech-tag">Nationwide</span>
-          <span class="tech-tag">Fast Delivery</span>
+
+      <div class="bento-card bento-cta reveal reveal-delay-2">
+        <div class="bento-cta-bg"></div>
+        <div class="bento-content">
+          <div class="bento-tag" style="color:var(--gold);">Your Business</div>
+          <div class="bento-title" style="color:var(--white);">Your Next Site</div>
+          <div class="bento-desc" style="color:rgba(255,255,255,0.65);">Ready to build something great? We're taking on new clients across South Africa.</div>
+          <div class="bento-footer">
+            <div class="bento-tech bento-tech-dark">
+              <span>Any Industry</span><span>Nationwide</span>
+            </div>
+            <a href="#contact" class="bento-link bento-link-gold">Start Here →</a>
+          </div>
         </div>
       </div>
+
     </div>
 
   </div>
@@ -417,6 +402,70 @@
           <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="section-label reveal">FAQ</div>
+      <h2 class="section-title reveal reveal-delay-1">Questions we get <span>asked a lot</span></h2>
+      <p class="section-sub reveal reveal-delay-2">Everything you need to know before we get started.</p>
+    </div>
+    <div class="faq-list reveal reveal-delay-2">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>How long does it take to build my website?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Most websites are completed within <strong>7–14 business days</strong> from the time we receive all your content (logo, images, copy). Larger or more complex projects may take 3–4 weeks. We'll give you a clear timeline before any work begins, so there are no surprises.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Will you update my website when I need changes?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. Every project includes a <strong>30-day post-launch support window</strong> for minor tweaks and fixes at no extra charge. After that, we offer affordable ongoing maintenance plans — covering monthly updates, performance checks, and content changes. You'll never feel stuck or alone after launch.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Will my website work properly on mobile phones?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Absolutely — mobile-first is how we build. Every Nivira site is fully <strong>responsive across all screen sizes</strong>, from large desktops to small smartphones. In South Africa, the majority of web traffic is mobile, so we design for mobile first and scale up — not the other way around.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Do I own my website once it's built?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes — <strong>you own everything</strong>. The code, the domain, the hosting account. We transfer full ownership to you at launch. Unlike some agencies that keep your site hostage, you're always free to take your site elsewhere. We earn your loyalty through quality, not lock-in.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>How much does a website cost?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Pricing depends on the scope — number of pages, features, and whether SEO or hosting setup is included. We offer <strong>transparent, fixed quotes</strong> with no hidden fees. The best way to get an accurate number is to send us a message below with your project details. We'll respond within 24 hours.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

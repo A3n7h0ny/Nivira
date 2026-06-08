@@ -118,6 +118,23 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
+// ── FAQ ACCORDION
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const isOpen = btn.getAttribute('aria-expanded')==='true';
+    // close all
+    document.querySelectorAll('.faq-question').forEach(b=>{
+      b.setAttribute('aria-expanded','false');
+      b.nextElementSibling.classList.remove('open');
+    });
+    // open clicked if it was closed
+    if(!isOpen){
+      btn.setAttribute('aria-expanded','true');
+      btn.nextElementSibling.classList.add('open');
+    }
+  });
+});
+
 // ========================================
 // Floating contact hub (WhatsApp / Email / Call)
 // ========================================
