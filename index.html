@@ -48,6 +48,9 @@
   </button>
 </nav>
 
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg">
@@ -75,7 +78,7 @@
       We build websites
       <span class="line2" id="swapText">that convert.</span>
     </h1>
-    <p>
+    <p class="hero-sub">
       <strong>Nivira</strong> crafts high-performance websites for South African businesses.
       From design to deployment — we handle everything so you can focus on what you do best.
     </p>
@@ -238,14 +241,31 @@
       <img src="images/cover-copy.jpg" alt="BS Appliance Expect Repair" class="bento-img">
       <div class="bento-gradient"></div>
       <div class="bento-content">
-        <div class="bento-tag">Local Business · Johannesburg</div>
-        <div class="bento-title">BS Appliance Expect Repair</div>
-        <div class="bento-desc">Full business website for a Johannesburg appliance repair company. SEO-optimised, POPIA-compliant, with working contact forms and Google Search Console setup.</div>
-        <div class="bento-footer">
-          <div class="bento-tech">
-            <span>Forms</span><span>SEO</span><span>DNS Setup</span><span>POPIA</span>
+        <div class="bento-static">
+          <div class="bento-tag">Local Business · Johannesburg</div>
+          <div class="bento-title">BS Appliance Expect Repair</div>
+        </div>
+        <div class="bento-hover-reveal">
+          <div class="bento-case-study">
+            <div class="case-row">
+              <span class="case-label">Problem</span>
+              <span class="case-value">No online presence — customers couldn't find or contact them</span>
+            </div>
+            <div class="case-row">
+              <span class="case-label">Built</span>
+              <span class="case-value">Full multi-page site — SEO, POPIA-compliant forms, domain transfer & SSL</span>
+            </div>
+            <div class="case-row">
+              <span class="case-label">Result</span>
+              <span class="case-value">Live & ranking on Google within weeks of launch</span>
+            </div>
           </div>
-          <a href="https://www.bsapplianceexpectrepairs.co.za" target="_blank" class="bento-link">View Live →</a>
+          <div class="bento-footer">
+            <div class="bento-tech">
+              <span>Forms</span><span>SEO</span><span>DNS Setup</span><span>POPIA</span>
+            </div>
+            <a href="https://www.bsapplianceexpectrepairs.co.za" target="_blank" class="bento-link">View Live →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -257,14 +277,18 @@
         <img src="images/shutterstock_313680314.jpg" alt="Eccentric Salon" class="bento-img">
         <div class="bento-gradient"></div>
         <div class="bento-content">
-          <div class="bento-tag">Beauty & Lifestyle</div>
-          <div class="bento-title">Eccentric Salon</div>
-          <div class="bento-desc">Premium salon website with booking integration, gallery, and full SEO setup.</div>
-          <div class="bento-footer">
-            <div class="bento-tech">
-              <span>Booking</span><span>Gallery</span><span>SEO</span>
+          <div class="bento-static">
+            <div class="bento-tag">Beauty & Lifestyle</div>
+            <div class="bento-title">Eccentric Salon</div>
+          </div>
+          <div class="bento-hover-reveal">
+            <div class="bento-desc">Premium salon website with booking integration, gallery, and full SEO setup.</div>
+            <div class="bento-footer">
+              <div class="bento-tech">
+                <span>Booking</span><span>Gallery</span><span>SEO</span>
+              </div>
+              <a href="#contact" class="bento-link">Coming Soon →</a>
             </div>
-            <a href="#contact" class="bento-link">Coming Soon →</a>
           </div>
         </div>
       </div>
@@ -272,14 +296,18 @@
       <div class="bento-card bento-cta reveal reveal-delay-2">
         <div class="bento-cta-bg"></div>
         <div class="bento-content">
-          <div class="bento-tag" style="color:var(--gold);">Your Business</div>
-          <div class="bento-title" style="color:var(--white);">Your Next Site</div>
-          <div class="bento-desc" style="color:rgba(255,255,255,0.65);">Ready to build something great? We're taking on new clients across South Africa.</div>
-          <div class="bento-footer">
-            <div class="bento-tech bento-tech-dark">
-              <span>Any Industry</span><span>Nationwide</span>
+          <div class="bento-static">
+            <div class="bento-tag" style="color:var(--gold);">Your Business</div>
+            <div class="bento-title" style="color:var(--white);">Your Next Site</div>
+          </div>
+          <div class="bento-hover-reveal">
+            <div class="bento-desc" style="color:rgba(255,255,255,0.65);">Ready to build something great? We're taking on new clients across South Africa.</div>
+            <div class="bento-footer">
+              <div class="bento-tech bento-tech-dark">
+                <span>Any Industry</span><span>Nationwide</span>
+              </div>
+              <a href="#contact" class="bento-link bento-link-gold">Start Here →</a>
             </div>
-            <a href="#contact" class="bento-link bento-link-gold">Start Here →</a>
           </div>
         </div>
       </div>
@@ -327,7 +355,7 @@
       
       <div class="about-img-wrap">
         
-        <div class="about-pattern"> <img src="images/pexels-mikael-blomkvist-6476580.jpg"></div>
+        <div class="about-pattern"> <img src="images/pexels-mikael-blomkvist-6476573.jpg"></div>
        
         <div class="about-center-card">
           <div class="about-logo-display">NI<span style="color:var(--cyan)">V</span>IRA</div>
@@ -390,6 +418,7 @@
 
 <!-- TESTIMONIAL -->
 <section class="testimonial">
+  <div class="testi-bg-overlay"></div>
   <div class="testi-inner reveal">
     <span class="quote-mark">"</span>
     <p class="testi-text">"The new website is night and day compared to the old one. It loads fast, looks professional, and we're already getting enquiries through the contact form."</p>

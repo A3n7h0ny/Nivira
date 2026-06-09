@@ -19,8 +19,13 @@ document.querySelectorAll('a,button,.service-card,.project-card').forEach(el=>{
 
 // ── NAVBAR SCROLL
 const navbar=document.getElementById('navbar');
+const scrollBar=document.getElementById('scrollProgress');
 window.addEventListener('scroll',()=>{
   navbar.classList.toggle('scrolled',window.scrollY>50);
+  if(scrollBar){
+    const total=document.documentElement.scrollHeight-window.innerHeight;
+    scrollBar.style.width=(window.scrollY/total*100)+'%';
+  }
 });
 
 // ── HAMBURGER

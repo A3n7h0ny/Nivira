@@ -329,6 +329,7 @@ nav.scrolled .hamburger span {
   width: 100%;
   height: 100%;
   background: rgba(31, 31, 31, 0.534);
+  backdrop-filter: blur(6px);
   z-index: 1;
 }
 
@@ -620,10 +621,25 @@ h2.section-title span{
   background:linear-gradient(135deg,var(--blue),var(--navy));
   opacity:0;transition:opacity 0.4s ease;
 }
+/* shimmer line sweep on hover */
+.service-card::after{
+  content:'';position:absolute;
+  top:0;left:-100%;
+  width:60%;height:100%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.07),
+    transparent
+  );
+  transition:left 0.6s ease;
+  z-index:2;pointer-events:none;
+}
+.service-card:hover::after{left:150%;}
 .service-card:hover::before{opacity:1;}
 .service-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 32px 64px rgba(26,31,94,0.2);
+  transform:translateY(-8px);
+  box-shadow:0 32px 64px rgba(0,102,204,0.25), 0 0 0 1px rgba(0,170,255,0.15);
   border-color:transparent;
 }
 .service-card:hover .service-num,
@@ -766,6 +782,25 @@ h2.section-title span{
   padding:32px;
   z-index:2;
 }
+.bento-static{
+  margin-bottom:0;
+  transition:margin-bottom 0.4s ease;
+}
+.bento-hover-reveal{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(12px);
+  transition:max-height 0.45s ease, opacity 0.35s ease, transform 0.35s ease;
+}
+.bento-card:hover .bento-hover-reveal{
+  max-height:300px;
+  opacity:1;
+  transform:translateY(0);
+}
+.bento-card:hover .bento-static{
+  margin-bottom:16px;
+}
 .bento-tag{
   font-size:11px;font-weight:600;
   letter-spacing:0.1em;text-transform:uppercase;
@@ -814,6 +849,29 @@ h2.section-title span{
   background:rgba(0,170,255,0.1);
   border-color:rgba(0,170,255,0.2);
   color:rgba(255,255,255,0.75);
+}
+/* Case study rows */
+.bento-case-study{
+  display:flex;flex-direction:column;
+  gap:10px;
+  margin-bottom:20px;
+}
+.case-row{
+  display:grid;
+  grid-template-columns:72px 1fr;
+  gap:12px;
+  align-items:baseline;
+}
+.case-label{
+  font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.1em;
+  color:var(--gold);
+  padding-top:2px;
+}
+.case-value{
+  font-size:13px;font-weight:400;
+  color:rgba(255,255,255,0.7);
+  line-height:1.5;
 }
 .bento-link{
   white-space:nowrap;
@@ -949,7 +1007,7 @@ h2.section-title span{
 }
 .about-logo-display{
   font-family:'Syne',sans-serif;
-  font-size:40px;font-weight:800;
+  font-size:35px;font-weight:800;
   background:linear-gradient(135deg,var(--cyan),var(--navy));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
@@ -1017,26 +1075,53 @@ h2.section-title span{
 }
 
 /* ── TESTIMONIAL ───────────────────────────────── */
+/* ── SCROLL PROGRESS BAR ───────────────────────── */
+.scroll-progress{
+  position:fixed;top:0;left:0;
+  height:3px;width:0%;
+  background:linear-gradient(90deg,var(--gold),var(--cyan));
+  z-index:10000;
+  transition:width 0.1s linear;
+  border-radius:0 2px 2px 0;
+}
+
+/* ── TESTIMONIAL ───────────────────────────────── */
 .testimonial{
-  background:var(--offwhite);
-  border-top:1px solid var(--grey);
-  border-bottom:1px solid var(--grey);
+  position:relative;
+  background-image:url('images/pexels-mikael-blomkvist-6476580.jpg');
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  border-top:none;
+  border-bottom:none;
+  overflow:hidden;
+}
+.testi-bg-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    135deg,
+    rgba(10,15,50,0.88) 0%,
+    rgba(0,20,60,0.82) 50%,
+    rgba(10,15,50,0.92) 100%
+  );
+  z-index:1;
 }
 .testi-inner{
   max-width:800px;margin:0 auto;
   text-align:center;
+  position:relative;z-index:2;
 }
 .quote-mark{
   font-family:'Syne',sans-serif;
   font-size:120px;line-height:0.6;
-  color:var(--cyan);opacity:0.2;
+  color:var(--gold);opacity:0.35;
   margin-bottom:24px;
   display:block;
 }
 .testi-text{
   font-family:'Syne',sans-serif;
   font-size:clamp(22px,3vw,32px);
-  font-weight:600;color:var(--navy);
+  font-weight:600;color:var(--white);
   line-height:1.4;letter-spacing:-0.5px;
   margin-bottom:40px;
 }
@@ -1050,21 +1135,23 @@ h2.section-title span{
   display:flex;align-items:center;justify-content:center;
   font-family:'Syne',sans-serif;
   font-size:18px;font-weight:800;color:var(--white);
+  border:2px solid rgba(255,255,255,0.2);
 }
 .testi-avatar img{
   width:52px;height:52px;border-radius:50%;
 }
 .testi-info strong{
   display:block;font-size:15px;
-  font-weight:600;color:var(--navy);
+  font-weight:600;color:var(--white);
 }
 .testi-info span{
-  font-size:13px;color:var(--midgrey);
+  font-size:13px;color:rgba(255,255,255,0.55);
 }
 .testi-stars{
   display:flex;gap:4px;margin-top:6px;
 }
 .star{color:var(--gold);font-size:14px;}
+
 
 /* ── FAQ ───────────────────────────────────────── */
 .faq{background:var(--white);}
@@ -1367,6 +1454,9 @@ footer{
   .faq-answer-inner{padding:0 24px 20px;}
   .bento-content{padding:24px;}
   .bento-featured .bento-title{font-size:22px;}
+  .bento-title{  margin-bottom:0.3px;}
+  .bento-desc{  margin-bottom:10px;}
+  .bento-right .bento-card{min-height:240px;}
 }
 
 
